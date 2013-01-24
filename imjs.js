@@ -20,7 +20,7 @@ var IMJS = {
 
 
 // put code that extend some utility methods here
-
+alert('hoge');
 
 
 
