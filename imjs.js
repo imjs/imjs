@@ -144,6 +144,12 @@
 
     },
 
+    getAttribute: function(selectors, attributeName) {
+
+      return selectors.getAttribute(attributeName);
+
+    },
+
     forEach: function(object, callback) {
 
       for (var i = 0, l = object.length; i < l; i++) {
@@ -159,18 +165,14 @@
     on: function(target, type, callback) {
 
       if ( doc.addEventListener ) {
-
-        for ( var i = 0, l = target.length; i < l; i++ ) {
-          target[i].addEventListener(type, callback, false);
-        }
+        
+        target[i].addEventListener(type, callback, false);
 
       } else {
-
-        for ( var i = 0, l = target.length; i < l; i++ ) {
-          target[i].attachEvent( 'on' + type, function(e) {
-            callback.call(e.srcElement);
-          });
-        }
+        
+        target[i].attachEvent( 'on' + type, function(e) {
+          callback.call(e.srcElement);
+        });
 
       }
 
@@ -181,6 +183,10 @@
       for (var i in properties) {
         selectors.style[i] = properties[i];
       }
+
+    },
+
+    offset: function() {
 
     },
 
@@ -311,6 +317,83 @@
 // o.getDeviceFromUa();
 // o.getDeviveFromSize();
 // o.getBrowserFromUa();
-// o.getBrowserFromSupport(); 
+// o.getBrowserFromSupport();
 
 }( window ));
+
+
+//o.forEach(o.getElements('getAttribute'));
+
+o.ready(function() {
+
+  if (o.getBrowserFromSupport().lteIe6 && !window.console) {
+
+    var body = o.getElements('body')[0];
+
+    (function() {
+      var element = document.createElement('ul');
+      element.id = 'log';
+      o.css(element, {
+        width: '300px',
+        height: '300px',
+        padding: '20px',
+        position: 'absolute',
+        background: '#fff',
+        color: '#666',
+        right: 0,
+        bottom: 0,
+        border: '1px solid #e5e5e5',
+        borderTop: '1px solid #b71a35',
+        listStyle: 'disc　inside'
+      });
+      body.insertBefore(element);
+    }());
+    
+    var log = o.getElements('#log')[0];
+
+    window.console = {};
+    console.log = function(string) {
+      var element = document.createElement('li');
+      element.innerHTML = string;
+      log.appendChild(element);
+    };
+
+  }
+
+  o.forEach(o.getElements('#getAttribute'), function(element, i) {
+    
+    // console.log(o.getAttribute(element, 'data-role'));
+
+  });
+
+
+  
+
+  var a, shallow, deep = {};
+
+  a = {
+    japan: 'tokyo',
+    america: 'Washington'
+  };
+
+  shallow = a;
+
+  for (var i in a) {
+    deep[i] = a[i];
+  }
+
+  console.log(a.japan);
+  console.log(shallow.japan);
+  console.log(deep.japan);
+
+  a.japan = 'osaka';
+
+  console.log(a.japan);
+  console.log(shallow.japan);
+  console.log(deep.japan);
+
+
+
+  
+
+});
