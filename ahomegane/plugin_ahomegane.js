@@ -63,7 +63,12 @@ o.extend(o, {
 
 });
 
-o.addCommand(function(){
+
+/**
+ * scroll
+ * 特定の位置へスクロール
+ */
+o.addCommand(function scroll(){
 
   var requestAnimationFrame = o.requestAnimationFrame();
   
