@@ -13,7 +13,7 @@
 
     prefix: 'imjs',
 
-    plugin: {}
+    plugin: {},
 
     commands: [],
 

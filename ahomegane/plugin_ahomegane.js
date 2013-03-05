@@ -1,13 +1,9 @@
-//author: ahomegane
+//author: ahomegane || datemegane;
 
-var imjsConf = {
-  prefix: 'imjs'
-}
-
-imjsConf.scroll = {
+imjs.plugin.scroll = {
   speed: 500,
   offset: 20,
-  easing: 'swing' 
+  easing: 'swing'
 }
 
 /**
@@ -23,7 +19,7 @@ o.addCommand(function scroll(){
   o.forEach(anchors, function () {
 
     var hash = this.hash;
-    var rClassName = new RegExp( imjsConf.prefix + '-scroll' );
+    var rClassName = new RegExp( imjs.prefix + '-scroll' );
 
     //check hash & className
     if( hash.match(/^#/) && this.className.match(rClassName) ) {
@@ -36,9 +32,9 @@ o.addCommand(function scroll(){
         var dataSpeed = this.getAttribute('data-speed'),
             dataOffset = this.getAttribute('data-offset'),
             dataEasing = this.getAttribute('data-easing');
-        var speed = dataSpeed || imjsConf.scroll.speed || 500;//ms
-        var offset = dataOffset || imjsConf.scroll.offset || 20;//px
-        var easing = dataEasing || imjsConf.scroll.easing || 'linear';
+        var speed = dataSpeed || imjs.plugin.scrollspeed || 500;//ms
+        var offset = dataOffset || imjs.plugin.scrolloffset || 20;//px
+        var easing = dataEasing || imjs.plugin.scrolleasing || 'linear';
 
 
         //click event
