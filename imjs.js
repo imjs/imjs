@@ -11,6 +11,10 @@
 
   var imjs = {
 
+    prefix: 'imjs',
+
+    plugin: {}
+
     commands: [],
 
     addCommand: function(cmd, noReady) {
@@ -24,7 +28,7 @@
 
     },
 
-    fire: function () {
+    ready: function () {
 
       var _this = this;
 
@@ -86,10 +90,6 @@
   };
 
   imjs.extend(imjs, {
-
-    ready: function(callback) {
-
-    },
 
     getElements: function(selectors) {
 
@@ -386,7 +386,7 @@
   window.o = window.imjs = imjs; // export. shotrcut = o
 
   // imjs fire!!!!!
-  o.fire();
+  o.ready();
 
 
 }( window, document ));
