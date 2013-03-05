@@ -5,7 +5,7 @@
  * @namespace global namespace [imjs, o]
  */
 
-(function( window, undefined ) {
+(function( window, document, undefined ) {
 
   var doc = document;
 
@@ -24,27 +24,13 @@
 
     },
 
-    fire: function() {
+    fire: function () {
 
-      for (var i = 0, l = this.commands.length; i < l; i++) this.commands[i]();
+      var _this = this;
 
-    }
-
-  };
-
-  imjs.extend = function(target, object) {
-
-    for (var i in object) {
-
-      target[i] = object[i];
-      
-    }
-
-  };
-
-  imjs.extend(imjs, {
-
-    ready: function(callback) {
+      var callback = function () {
+        for (var i = 0, l = _this.commands.length; i < l; i++) _this.commands[i]();
+      };
 
       if (doc.readyState === 'complete') {
 
@@ -75,7 +61,7 @@
           done();
         }());
 
-        doc.onreadystatechange = function() {
+        doc.onreadystatechange = function () {
           if (doc.readyState == 'complete') {
             doc.onreadystatechange = null;
             done();
@@ -83,6 +69,25 @@
         };
 
       }
+
+    }
+
+  };
+
+  imjs.extend = function(target, object) {
+
+    // imjs deep copy
+    for (var i in object) {
+
+      target[i] = object[i];
+      
+    }
+
+  };
+
+  imjs.extend(imjs, {
+
+    ready: function(callback) {
 
     },
 
@@ -166,13 +171,17 @@
 
       if ( doc.addEventListener ) {
         
-        target[i].addEventListener(type, callback, false);
+        target.addEventListener(type, callback, false);
 
       } else {
+
+        target.attachEvent('on' + type, callback);
         
-        target[i].attachEvent( 'on' + type, function(e) {
+        /*
+        target.attachEvent( 'on' + type, function(e) {
           callback.call(e.srcElement);
         });
+        */
 
       }
 
@@ -186,11 +195,65 @@
 
     },
 
-    offset: function() {
+    getElementPosition: function(el) {
+
+      var top = 0, left= 0;
+
+      do {
+        top += el.offsetTop  || 0;
+        left += el.offsetLeft || 0;
+        el = el.offsetParent;
+      } while (el);
+
+      return {top: top, left: left};
 
     },
 
-    getDeviceFromUa: function() {
+    getScrollPosition: function () {
+
+      var top = document.documentElement.scrollTop || document.body.scrollTop;
+      var left = document.documentElement.scrollLeft || document.body.scrollLeft;      
+
+      return {
+        top: top,
+        left: left
+      };
+
+    },
+
+    preventDefault: function(e) {
+
+      if (e.preventDefault) {
+        e.preventDefault();
+      } else {
+        e.returnValue = false;
+      }
+
+    },
+
+    requestAnimationFrame: function () {
+
+      return window.requestAnimationFrame ||
+             window.webkitRequestAnimationFrame ||
+             window.mozRequestAnimationFrame ||
+             window.msRequestAnimationFrame ||
+             window.oRequestAnimationFrame ||
+             function (f) { return window.setTimeout(f, 1000 / 60); };
+
+    },
+
+    cancelRequestAnimationFrame: function () {
+
+      return window.cancelRequestAnimationFrame ||
+             window.webkitCancelRequestAnimationFrame ||
+             window.mozCancelRequestAnimationFrame ||
+             window.msCancelRequestAnimationFrame ||
+             window.oCancelRequestAnimationFrame ||
+             function (id) { window.clearTimeout(id); };
+
+    },
+
+    getDeviceFromUa: function () {
 
       var ua = window.navigator.userAgent.toLowerCase();
       var deviceType = {
@@ -246,7 +309,7 @@
 
     },
 
-    getBrowserFromUa: function() {
+    getBrowserFromUa: function () {
 
       var ua = window.navigator.userAgent.toLowerCase();
       var ieVersion = ua.slice(ua.indexOf('msie ')+'msie '.length,ua.indexOf('msie ')+'msie '.length+1);
@@ -287,7 +350,7 @@
 
     },
 
-    getBrowserFromSupport: function() {
+    getBrowserFromSupport: function () {
 
       return {
         lteIe6:  typeof window.addEventListener == 'undefined' && typeof document.documentElement.style.maxHeight == 'undefined',
@@ -300,37 +363,42 @@
         mobile:  typeof window.orientation != 'undefined'
       }
 
+    },
+
+    easing: {
+
+      linear: function(t, b, c, d) {
+        return b + c * t / d;
+      },
+
+      swing: function(t, b, c, d) {
+        return ( (-Math.cos(t / d * Math.PI) / 2 ) + 0.5) * c + b;
+      },
+
+      easeOutQuad: function (t, b, c, d) {
+        return -c * (t /= d) * (t - 2) + b;
+      }
+
     }
 
   });
 
   window.o = window.imjs = imjs; // export. shotrcut = o
 
-// o.commands();
-// o.addCommand();
-// o.fire();
-// o.extend(target, object);
-// o.ready();
-// o.getElements(selector);
-// o.forEach(object, callback);
-// o.on(target, type, callback);
-// o.getDeviceFromUa();
-// o.getDeviveFromSize();
-// o.getBrowserFromUa();
-// o.getBrowserFromSupport();
-
-}( window ));
+  // imjs fire!!!!!
+  o.fire();
 
 
-//o.forEach(o.getElements('getAttribute'));
+}( window, document ));
 
-o.ready(function() {
+/*
+o.ready(function () {
 
   if (o.getBrowserFromSupport().lteIe6 && !window.console) {
 
     var body = o.getElements('body')[0];
 
-    (function() {
+    (function () {
       var element = document.createElement('ul');
       element.id = 'log';
       o.css(element, {
@@ -360,40 +428,5 @@ o.ready(function() {
 
   }
 
-  o.forEach(o.getElements('#getAttribute'), function(element, i) {
-    
-    // console.log(o.getAttribute(element, 'data-role'));
-
-  });
-
-
-  
-
-  var a, shallow, deep = {};
-
-  a = {
-    japan: 'tokyo',
-    america: 'Washington'
-  };
-
-  shallow = a;
-
-  for (var i in a) {
-    deep[i] = a[i];
-  }
-
-  console.log(a.japan);
-  console.log(shallow.japan);
-  console.log(deep.japan);
-
-  a.japan = 'osaka';
-
-  console.log(a.japan);
-  console.log(shallow.japan);
-  console.log(deep.japan);
-
-
-
-  
-
 });
+*/
