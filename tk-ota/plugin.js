@@ -1,11 +1,3 @@
-//author: ahomegane || datemegane;
-
-imjs.plugin.scroll = {
-  speed: 500,
-  offset: 20,
-  easing: 'swing'
-}
-
 /**
  * scroll
  * 特定の位置へスクロール
