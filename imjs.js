@@ -91,9 +91,10 @@
 
   imjs.extend(imjs, {
 
-    getElements: function(selectors) {
+    getElements: function(selectors, range) {
 
-      var array = [];
+      var range = range || document,
+          array = [];
 
       if (typeof selector === 'object') {
 
@@ -103,9 +104,9 @@
 
       if (typeof selectors === 'string') {
 
-        if (doc.querySelectorAll) {
+        if (range.querySelectorAll) {
 
-          selectors = doc.querySelectorAll(selectors);
+          selectors = range.querySelectorAll(selectors);
 
           for (var i = 0, l = selectors.length; i < l; i++) {
             array[i] = selectors[i];
@@ -115,13 +116,13 @@
 
           if (/^#/.test(selectors)) {
 
-            array = [doc.getElementById(selectors.replace(/^./, ''))];
+            array = [range.getElementById(selectors.replace(/^./, ''))];
             
           } else if ( /^\./.test(selectors) ) {
 
             selectors = selectors.replace(/^\./, '');
 
-            var all = doc.getElementsByTagName('*'),
+            var all = range.getElementsByTagName('*'),
                 reg = new RegExp('\\b' + selectors + '\\b');
 
             for (var i = 0, j = 0, l = all.length; i < l; i++) {
@@ -133,7 +134,7 @@
 
           } else {
 
-            selectors = doc.getElementsByTagName(selectors);
+            selectors = range.getElementsByTagName(selectors);
 
             for (var i = 0, l = selectors.length; i < l; i++) {
               array[i] = selectors[i];
@@ -146,6 +147,41 @@
       }
 
       return array;
+
+    },
+
+    addClass: function(selectors, className) {
+
+      var hasClass = selectors.className.split(' '),
+          flag = true;
+
+      for (var i = 0, l = hasClass.length; i < l; i++) {
+        if (hasClass[i] === className) {
+          flag = false;
+        }
+      }
+      
+      if (flag) {
+        selectors.className = hasClass.join(' ') + ' ' + className;
+      } 
+
+    },
+
+    removeClass: function(selectors, className) {
+
+      var hasClass = selectors.className.split(' '),
+          flag = false;
+
+      for (var i = 0, l = hasClass.length; i < l; i++) {
+        if (hasClass[i] === className) {
+          hasClass.splice(i, 1);
+          flag = true;
+        }
+      }
+
+      if (flag) {
+        selectors.className = hasClass.join(' ');
+      }
 
     },
 
@@ -176,12 +212,6 @@
       } else {
 
         target.attachEvent('on' + type, callback);
-        
-        /*
-        target.attachEvent( 'on' + type, function(e) {
-          callback.call(e.srcElement);
-        });
-        */
 
       }
 
@@ -362,6 +392,18 @@
         webkit:  !document.uniqueID && !window.opera && !window.sidebar && window.localStorage && typeof window.orientation == 'undefined',
         mobile:  typeof window.orientation != 'undefined'
       }
+
+    },
+
+    makeArray: function (domArray) {
+
+      var array = [];
+
+      for (var i = 0, l = domArray.length; i < l; i++) {
+        array[i] = domArray[i];
+      }
+
+      return array;
 
     },
 
