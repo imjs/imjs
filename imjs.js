@@ -1,8 +1,8 @@
 /**
  * @fileOverview imjs JavaScript Library
- * @name imjs.js || im.js
+ * @name imjs.js
  * @version 1.0.0 2012.12.26 Creating New File
- * @namespace global namespace [imjs, o]
+ * @namespace global namespace [imjs]
  */
 
 (function( window, document, undefined ) {
@@ -430,45 +430,4 @@
   // imjs fire!!!!!
   o.ready();
 
-
 }( window, document ));
-
-/*
-o.ready(function () {
-
-  if (o.getBrowserFromSupport().lteIe6 && !window.console) {
-
-    var body = o.getElements('body')[0];
-
-    (function () {
-      var element = document.createElement('ul');
-      element.id = 'log';
-      o.css(element, {
-        width: '300px',
-        height: '300px',
-        padding: '20px',
-        position: 'absolute',
-        background: '#fff',
-        color: '#666',
-        right: 0,
-        bottom: 0,
-        border: '1px solid #e5e5e5',
-        borderTop: '1px solid #b71a35',
-        listStyle: 'disc　inside'
-      });
-      body.insertBefore(element);
-    }());
-    
-    var log = o.getElements('#log')[0];
-
-    window.console = {};
-    console.log = function(string) {
-      var element = document.createElement('li');
-      element.innerHTML = string;
-      log.appendChild(element);
-    };
-
-  }
-
-});
-*/

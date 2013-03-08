@@ -2,29 +2,77 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>imjs</title>
+<title>imjs | tk-ota</title>
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" type="text/css" href="css/reset.css" />
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <script type="text/javascript" src="imjs.js"></script>
-<script type="text/javascript" src="plugin/plugin.js"></script>
+<style>
+
+  body{
+    color: rgb(127, 127, 127);
+    background: #eae9e9;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  h1{
+    font-size: 400%;
+    font-style: italic;
+    text-shadow: 0 1px 1px #ccc;
+  }
+
+  h2{
+    font-size: 14px;
+  }
+
+  li{
+    width: 240px;
+    border-radius: 2px;
+    -webkit-box-shadow: 0 1px 1px #cccccc;
+    margin-bottom: 10px;
+  }
+  li a{
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 116.7%;
+  }
+  li a span{
+    display: block;
+    padding: 4px 0 4px 30px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 24px 24px;
+  }
+
+  .github{
+    background: #525252;
+  }
+  .github span{
+    background-image: url(img/github.png);
+  }
+  .document{
+    background: #3b5998;
+  }
+  .document span{
+    background-image: url(img/document.png);
+  }
+
+  
+
+</style>
 </head>
 <body>
 
   <h1>imjs</h1>
 
-  <p id="imj">#imj</p>
+  <div>
+    <ul>
+      <li class="github"><a href="https://github.com/imjs/imjs" target="_blank"><span>GitHub</span></a></li>
+      <li class="document"><a href="#"><span>document</span></a></li>
+    </ul>
+  </div>
 
-  <p class="takano">.takano</p>
-  <p class="nishida">.nishida</p>
-  <p class="watanabe">.watanabe</p>
-  <p class="taro">.taro</p>
-  <p class="ota">.ota</p>
-  <p class="i">.i</p>
-  <p class="i im">.i .im</p>
-  <p class="i im imj">.i .im .imj</p>
-
-
-  <div id="getAttribute" data-role="value">getAttribute</div>
- 
 </body>
 </html>
