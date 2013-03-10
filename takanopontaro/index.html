@@ -4,7 +4,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>takanopontaro</title>
 <script type="text/javascript" src="../imjs.js"></script>
-<script type="text/javascript" src="plugin.js"></script>
+<script type="text/javascript" src="popupo.js"></script>
+<script type="text/javascript" src="boxheights.js"></script>
+<style>
+.box {
+	overflow: hidden;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+.box li {
+	float: left;
+	border: 1px solid #f00;
+	width: 100px;
+	margin: 0;
+	padding: 10px;
+}
+</style>
 </head>
 <body>
 
@@ -12,6 +28,20 @@
 	<li><a href="http://www.google.com" target="popupwin" class="imjs-popup">デフォルト</a></li>
 	<li><a href="http://www.google.com" target="_blank" class="imjs-popup">別窓</a></li>
 	<li><a href="http://www.google.com" target="popupwin" class="imjs-popup" data-width="1000" data-height="700">1000x700で開く</a></li>
+</ul>
+
+<hr />
+
+<ul class="box">
+	<li class="imjs-boxheights">あああああ</li>
+	<li class="imjs-boxheights">いい<br />いいい</li>
+	<li class="imjs-boxheights">う<br />う<br />う<br />う<br />う</li>
+</ul>
+
+<ul class="box">
+	<li class="imjs-boxheights" data-group="second">あああああ</li>
+	<li class="imjs-boxheights" data-group="second">いいいいい</li>
+	<li class="imjs-boxheights" data-group="second">う<br />うううう</li>
 </ul>
 
 </body>
