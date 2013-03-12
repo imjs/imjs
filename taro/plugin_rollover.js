@@ -1,4 +1,4 @@
-//author: ahomegane || datemegane;
+//author: taro || qitao;
 
 imjs.plugin.rollover = {
   suffix: '_on'
