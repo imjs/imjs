@@ -14,6 +14,9 @@
 
 	var dataTarget = htmlNode.getAttribute( 'data-target' );
 	var dataUrl = htmlNode.getAttribute( 'data-url' );
+
+	if( !dataTarget || !dataUrl ) return;
+
 	var targets = dataTarget.split(' ');
 	var device = o.getDeviceFromUa();
 	var redirect = false;
@@ -37,5 +40,5 @@
 	if( redirect ) {
 		window.location.href = dataUrl;
 	}
-	
+
 })( window );
