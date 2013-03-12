@@ -299,7 +299,7 @@
       else if(ua.indexOf('android') > -1 && ua.indexOf('mobile') > -1) deviceType.android = true; //AndroidMobile(一部のタブレット型アンドロイドを含む)
       else if(ua.indexOf('windows phone') > -1) deviceType.windowsphone = true; //WindowsPhone
       else if(ua.indexOf('ipad') > -1) deviceType.ipad = true; //iPad
-      else if(ua.indexOf('android') > -1) deviceType.androidTab = true; //AndroidTablet
+      else if(ua.indexOf('android') > -1) deviceType.androidtab = true; //AndroidTablet
       else deviceType.pc = true; //PC
       return deviceType;
 
