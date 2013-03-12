@@ -360,12 +360,14 @@
         other:  false
       }
 
+      if(ua.indexOf('msie') > -1) browserType.ie = true;
+      
       if (ieVersion < 7) browserType.lteIe6 = true;
       else if(ieVersion < 8) browserType.lteIe7 = true;
       else if(ieVersion < 9) browserType.lteIe8 = true;
       else if(ieVersion < 10) browserType.lteIe9 = true;
-      else if(ua.indexOf('msie') > -1) browserType.ie = true;
-      else if(ua.indexOf('msie 6.') > -1) browserType.ie6 = true;
+      
+      if(ua.indexOf('msie 6.') > -1) browserType.ie6 = true;
       else if(ua.indexOf('msie 7.') > -1) browserType.ie7 = true;
       else if(ua.indexOf('msie 8.') > -1) browserType.ie8 = true;
       else if(ua.indexOf('msie 9.') > -1) browserType.ie9 = true;
@@ -426,7 +428,7 @@
   });
 
   window.o = window.imjs = imjs; // export. shotrcut = o
-
+  
   // imjs fire!!!!!
   o.ready();
 
