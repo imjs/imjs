@@ -39,7 +39,7 @@ boxheights
 
 * 親要素にクラスをつける
 
-data-children属性をtrueにすることで、直接の子要素を対象とします。
+    data-children属性をtrueにすることで、直接の子要素を対象とします。
 
         <ul class="imjs-boxheights" data-children="true">
           <li>あいうえお</li>
@@ -78,7 +78,7 @@ label
 
 * 上位要素にクラスをつける
 
-data-descendant属性をtrueにすることで、下位要素を対象とします。
+    data-descendant属性をtrueにすることで、下位要素を対象とします。
 
         <ul class="imjs-label" data-descendant="true">
           <li><label class="imjs-label"><input type="checkbox" />あああああ</label></li>
