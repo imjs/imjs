@@ -31,20 +31,20 @@ boxheights
 
 * 対象の要素すべてにクラスをつける
 
-    <ul>
-      <li class="imjs-boxheights">あいうえお</li>
-      <li class="imjs-boxheights">あい<br />うえお</li>
-      <li class="imjs-boxheights">あ<br />い<br />う<br />え<br />お</li>
-    </ul>
+        <ul>
+          <li class="imjs-boxheights">あいうえお</li>
+          <li class="imjs-boxheights">あい<br />うえお</li>
+          <li class="imjs-boxheights">あ<br />い<br />う<br />え<br />お</li>
+        </ul>
 
 * 親要素にクラスをつける
 data-children属性をtrueにすることで、直接の子要素を対象とします。
 
-    <ul class="imjs-boxheights" data-children="true">
-      <li>あいうえお</li>
-      <li>あい<br />うえお</li>
-      <li>あ<br />い<br />う<br />え<br />お</li>
-    </ul>
+        <ul class="imjs-boxheights" data-children="true">
+          <li>あいうえお</li>
+          <li>あい<br />うえお</li>
+          <li>あ<br />い<br />う<br />え<br />お</li>
+        </ul>
 
 #### グルーピング
 ページ内に、高さを揃えたいボックスのグループが複数ある場合、data-group属性を追加して、グルーピングを行います。  
@@ -78,11 +78,11 @@ label
 * 上位要素にクラスをつける
 data-descendant属性をtrueにすることで、下位要素を対象とします。
 
-    <ul class="imjs-label" data-descendant="true">
-      <li><label class="imjs-label"><input type="checkbox" />あああああ</label></li>
-      <li><label class="imjs-label"><input type="checkbox" />いいいいい</label></li>
-      <li><label class="imjs-label"><input type="checkbox" /><img src="icon.gif" />ううううう</label></li>
-    </ul>
+        <ul class="imjs-label" data-descendant="true">
+          <li><label class="imjs-label"><input type="checkbox" />あああああ</label></li>
+          <li><label class="imjs-label"><input type="checkbox" />いいいいい</label></li>
+          <li><label class="imjs-label"><input type="checkbox" /><img src="icon.gif" />ううううう</label></li>
+        </ul>
 
 ### popup - リンクを小窓で開く
 指定したリンクを小窓で開くようにします。
