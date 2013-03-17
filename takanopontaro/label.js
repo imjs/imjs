@@ -4,21 +4,36 @@ imjs.plugin.label = {
 
 imjs.addCommand(function () {
 	var browser = imjs.getBrowserFromUa();
-	browser = {ie7:true};
 	if (!browser.ie6 && !browser.ie7 && !browser.ie8) return;
-	var c = imjs.plugin.label, els = imjs.getElements('.' + (imjs.prefix + '-label'));
+	var c = imjs.plugin.label, nodes = imjs.getElements('.' + (imjs.prefix + '-label')), els = [];
+	imjs.forEach(nodes, function (el, i) {
+		if (imjs.getAttribute(el, 'data-descendant') == 'true') {
+			els = els.concat(imjs.getElements('label', el));
+		}
+		else {
+			els.push(el);
+		}
+	});
 	imjs.forEach(els, function (el, i) {
-		var target = el;
+		var targets = [el];
 		if (!browser.ie6) {
 			var img = imjs.getElements('img', el);
 			if (img.length == 0) return;
-			target = img[0];
+			targets = img;
 		}
 		var inputs = imjs.getElements('input', el);
-		if (inputs.length == 0 || !/radio|checkbox/.test(inputs[0].type)) return;
-		imjs.on(target, 'click', function (e) {
-			if (e.srcElement == inputs[0]) return;
-			inputs[0].checked = !inputs[0].checked;
+		if (inputs.length == 0) return;
+		var input = inputs[0], checkable = /radio|checkbox/.test(input.type),
+			f = function (e) {
+				if (!checkable && e.srcElement.tagName != 'INPUT') {
+					input.focus();
+					return;
+				}
+				if (e.srcElement == input || (input.type == 'radio' && input.checked)) return;
+				input.checked = !input.checked;
+			};
+		imjs.forEach(targets, function (el, i) {
+			imjs.on(el, 'click', f);
 		});
 	});
 });

@@ -9,10 +9,9 @@ imjs.addCommand(function () {
 	var c = imjs.plugin.popup, els = imjs.getElements('.' + (imjs.prefix + '-popup'));
 	imjs.forEach(els, function (el, i) {
 		if (!el.href) return;
-		var width = imjs.getAttribute(el, 'data-width') || c.width, height = imjs.getAttribute(el, 'data-height') || c.height;
+		var w = imjs.getAttribute(el, 'data-width') || c.width, h = imjs.getAttribute(el, 'data-height') || c.height;
 		imjs.on(el, 'click', function (e) {
-			var options = (el.target != '_blank') ? 'width=' + width + ',height=' + height + c.options : '';
-			window.open(el.href, el.target, options);
+			window.open(el.href, el.target, 'width=' + w + ',height=' + h + c.options);
 			imjs.preventDefault(e);
 		});
 	});

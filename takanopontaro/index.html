@@ -9,6 +9,7 @@
 <script type="text/javascript" src="label.js"></script><style>
 .box {
 	overflow: hidden;
+	zoom: 1;
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
@@ -18,7 +19,7 @@
 	border: 1px solid #f00;
 	width: 100px;
 	margin: 0;
-	padding: 10px;
+	padding: 11px;
 }
 </style>
 </head>
@@ -26,7 +27,6 @@
 
 <ul>
 	<li><a href="http://www.google.com" target="popupwin" class="imjs-popup">デフォルト</a></li>
-	<li><a href="http://www.google.com" target="_blank" class="imjs-popup">別窓</a></li>
 	<li><a href="http://www.google.com" target="popupwin" class="imjs-popup" data-width="1000" data-height="700">1000x700で開く</a></li>
 </ul>
 
@@ -38,10 +38,10 @@
 	<li class="imjs-boxheights">う<br />う<br />う<br />う<br />う</li>
 </ul>
 
-<ul class="box">
-	<li class="imjs-boxheights" data-group="second">あああああ</li>
-	<li class="imjs-boxheights" data-group="second">いいいいい</li>
-	<li class="imjs-boxheights" data-group="second">う<br />うううう</li>
+<ul class="box imjs-boxheights" data-group="second" data-children="true">
+	<li>あああああ</li>
+	<li>いいいいい</li>
+	<li>う<br />うううう</li>
 </ul>
 
 <hr />
@@ -53,10 +53,10 @@
 	<li><label class="imjs-label"><input type="checkbox" />ううう<img src="dummy.gif" />うう</label></li>
 </ul>
 
-<ul>
-	<li><label class="imjs-label"><input type="text" /><input type="radio" name="hoge" />あああああ</label></li>
-	<li><label class="imjs-label"><input type="radio" name="hoge" />いいいいい</label></li>
-	<li><label class="imjs-label"><input type="radio" name="hoge" />ううう<img src="dummy.gif" />うう<img src="dummy.gif" /></label></li>
+<ul class="imjs-label" data-descendant="true">
+	<li><label><input type="text" /><input type="radio" name="hoge" />あああ<img src="dummy.gif" />ああ</label></li>
+	<li><label><input type="radio" name="hoge" />いいいいい</label></li>
+	<li><label><input type="radio" name="hoge" />ううう<img src="dummy.gif" />うう<img src="dummy.gif" /></label></li>
 </ul>
 
 </body>
