@@ -30,6 +30,7 @@ boxheights
 ふたつの指定方法があります。
 
 * 対象の要素すべてにクラスをつける
+
     <ul>
       <li class="imjs-boxheights">あいうえお</li>
       <li class="imjs-boxheights">あい<br />うえお</li>
@@ -38,6 +39,7 @@ boxheights
 
 * 親要素にクラスをつける
 data-children属性をtrueにすることで、直接の子要素を対象とします。
+
     <ul class="imjs-boxheights" data-children="true">
       <li>あいうえお</li>
       <li>あい<br />うえお</li>
@@ -47,6 +49,7 @@ data-children属性をtrueにすることで、直接の子要素を対象とし
 #### グルーピング
 ページ内に、高さを揃えたいボックスのグループが複数ある場合、data-group属性を追加して、グルーピングを行います。
 なお、何も指定しない場合のグループは「_」です。
+
     <ul class="box imjs-boxheights" data-group="second" data-children="true">
       <li>あああああ</li>
       <li>いいいいい</li>
@@ -65,6 +68,7 @@ label
 ふたつの指定方法があります。
 
 * 対象の要素すべてにクラスをつける
+
     <ul>
       <li><label class="imjs-label"><input type="checkbox" />あああああ</label></li>
       <li><label class="imjs-label"><input type="checkbox" />いいいいい</label></li>
@@ -73,6 +77,7 @@ label
 
 * 上位要素にクラスをつける
 data-descendant属性をtrueにすることで、下位要素を対象とします。
+
     <ul class="imjs-label" data-descendant="true">
       <li><label class="imjs-label"><input type="checkbox" />あああああ</label></li>
       <li><label class="imjs-label"><input type="checkbox" />いいいいい</label></li>
@@ -90,6 +95,7 @@ popup
     <a href="http://www.imjp.co.jp" target="popupwin" class="imjs-popup">ポップアップで開く</a>
 
 オプションを指定することで表示を制御できます。
+
     <a href="http://www.imjp.co.jp" target="popupwin" class="imjs-popup" data-width="1000" data-height="700">1000x700で開く</a>
 
 ##### オプション
