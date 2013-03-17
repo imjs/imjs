@@ -47,7 +47,7 @@ data-children属性をtrueにすることで、直接の子要素を対象とし
     </ul>
 
 #### グルーピング
-ページ内に、高さを揃えたいボックスのグループが複数ある場合、data-group属性を追加して、グルーピングを行います。
+ページ内に、高さを揃えたいボックスのグループが複数ある場合、data-group属性を追加して、グルーピングを行います。  
 なお、何も指定しない場合のグループは「_」です。
 
     <ul class="box imjs-boxheights" data-group="second" data-children="true">
@@ -69,11 +69,11 @@ label
 
 * 対象の要素すべてにクラスをつける
 
-    <ul>
-      <li><label class="imjs-label"><input type="checkbox" />あああああ</label></li>
-      <li><label class="imjs-label"><input type="checkbox" />いいいいい</label></li>
-      <li><label class="imjs-label"><input type="checkbox" /><img src="icon.gif" />ううううう</label></li>
-    </ul>
+        <ul>
+          <li><label class="imjs-label"><input type="checkbox" />あああああ</label></li>
+          <li><label class="imjs-label"><input type="checkbox" />いいいいい</label></li>
+          <li><label class="imjs-label"><input type="checkbox" /><img src="icon.gif" />ううううう</label></li>
+        </ul>
 
 * 上位要素にクラスをつける
 data-descendant属性をtrueにすることで、下位要素を対象とします。
@@ -98,7 +98,7 @@ popup
 
     <a href="http://www.imjp.co.jp" target="popupwin" class="imjs-popup" data-width="1000" data-height="700">1000x700で開く</a>
 
-##### オプション
+#### オプション
 太字はデフォルト値。
 +   `width`
     小窓の幅  
@@ -109,5 +109,5 @@ popup
     **500**
 
 +   `options`
-    window.openのオプション  
+    window.open()のオプション  
     **,menubar=no,toolbar=no,location=yes,status=yes,resizable=yes,scrollbars=yes**
