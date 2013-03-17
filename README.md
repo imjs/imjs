@@ -17,7 +17,7 @@ imjsは誰でも簡単に、jsの知識がなくても使うことができま�
 
 機能一覧
 ------
-imjsで提供される機能を説明します。  
+imjsで提供される機能の一覧です。  
 各機能にはパラメーターを変更できるものもあり、あなたの要望に柔軟に応えます。
 
 ### boxheights - ボックスの高さを揃える
@@ -38,6 +38,7 @@ boxheights
         </ul>
 
 * 親要素にクラスをつける
+
 data-children属性をtrueにすることで、直接の子要素を対象とします。
 
         <ul class="imjs-boxheights" data-children="true">
@@ -47,8 +48,8 @@ data-children属性をtrueにすることで、直接の子要素を対象とし
         </ul>
 
 #### グルーピング
-ページ内に、高さを揃えたいボックスのグループが複数ある場合、data-group属性を追加して、グルーピングを行います。  
-なお、何も指定しない場合のグループは「_」です。
+ページ内に、高さを揃えたいボックスのグループが複数ある場合、data-group属性を追加してグルーピングを行います。  
+なお、何も指定しない場合のグループは **_** です。
 
     <ul class="box imjs-boxheights" data-group="second" data-children="true">
       <li>あああああ</li>
@@ -58,7 +59,7 @@ data-children属性をtrueにすることで、直接の子要素を対象とし
 
 ### label - IE8以下でlabelタグのバグを回避する
 IE8以下ではlabelタグに問題があります。  
-label内に画像がある場合、それをクリックしても何も起こらず、それどころかIE6ではlabelのクリック自体が機能しません。
+label内に画像がある場合、それをクリックしても何も起こらず、さらにIE6ではlabelのクリック自体が機能しません。  
 これらのバグを回避し、他のブラウザと同じように機能するようにします。
 
 #### クラス名
@@ -76,6 +77,7 @@ label
         </ul>
 
 * 上位要素にクラスをつける
+
 data-descendant属性をtrueにすることで、下位要素を対象とします。
 
         <ul class="imjs-label" data-descendant="true">
@@ -94,12 +96,12 @@ popup
 
     <a href="http://www.imjp.co.jp" target="popupwin" class="imjs-popup">ポップアップで開く</a>
 
-オプションを指定することで表示を制御できます。
+オプションを指定することで表示をカスタマイズできます。
 
     <a href="http://www.imjp.co.jp" target="popupwin" class="imjs-popup" data-width="1000" data-height="700">1000x700で開く</a>
 
 #### オプション
-太字はデフォルト値。
+太字はデフォルト値です。
 +   `width`
     小窓の幅  
     **500**
