@@ -397,6 +397,12 @@
 
     },
 
+    getComputedStyle: function(el) {
+
+      return el.currentStyle || document.defaultView.getComputedStyle(el, '');
+
+    },
+
     makeArray: function (domArray) {
 
       var array = [];
