@@ -8,9 +8,11 @@ imjsは便利で小さな単機能の集合体です。
 imjsは誰でも簡単に、jsの知識がなくても使うことができます。
 
 まずライブラリを読み込みます。
+
     <script type="text/javascript" src="imjs.js"></script>
 
 そしてあらかじめ決められたクラスをつける、これだけです。
+
     <div class="imjs-facebook"></div>
 
 機能一覧
