@@ -458,19 +458,19 @@
   // imjs fire!!!!!
   o.ready();
 
-  var gu = o.getBrowserFromUa();
-  console.log('lteIe6: ', gu.lteIe6);
-  console.log('lteIe7: ', gu.lteIe7);
-  console.log('lteIe8: ', gu.lteIe8);
-  console.log('lteIe9: ', gu.lteIe9);
-  console.log('ie6: ', gu.ie6);
-  console.log('ie7: ', gu.ie7);
-  console.log('ie8: ', gu.ie8);
-  console.log('ie9: ', gu.ie9);
-  console.log('ie10: ', gu.ie10);
-  console.log('firefox: ', gu.firefox);
-  console.log('opera: ', gu.opera);
-  console.log('chrome: ', gu.chrome);
-  console.log('safari: ', gu.safari);
+  // var gu = o.getBrowserFromUa();
+  // console.log('lteIe6: ', gu.lteIe6);
+  // console.log('lteIe7: ', gu.lteIe7);
+  // console.log('lteIe8: ', gu.lteIe8);
+  // console.log('lteIe9: ', gu.lteIe9);
+  // console.log('ie6: ', gu.ie6);
+  // console.log('ie7: ', gu.ie7);
+  // console.log('ie8: ', gu.ie8);
+  // console.log('ie9: ', gu.ie9);
+  // console.log('ie10: ', gu.ie10);
+  // console.log('firefox: ', gu.firefox);
+  // console.log('opera: ', gu.opera);
+  // console.log('chrome: ', gu.chrome);
+  // console.log('safari: ', gu.safari);
 
 }( window, document ));
