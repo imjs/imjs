@@ -350,12 +350,13 @@
         lteIe7:  false,
         lteIe8:  false,
         lteIe9:  false,
-        ie:      false,
+        lteIe10: false,
         ie6:     false,
         ie7:     false,
         ie8:     false,
         ie9:     false,
         ie10:    false,
+        ie:      false,
         firefox: false,
         opera:   false,
         chrome:  false,
@@ -371,23 +372,28 @@
       if (isIE) {
         if (ieVersion === 6) {
           browserType.lteIe6 = true;
-          browserType.ie6 = true;
-        } else if (ieVersion === 7) {
-          browserType.lteIe6 = true;
-          browserType.lteIe7 = true;
-          browserType.ie7 = true;
-        } else if (ieVersion === 8) {
-          browserType.lteIe6 = true;
-          browserType.lteIe7 = true;
-          browserType.lteIe8 = true;
-          browserType.ie8 = true;
-        } else if (ieVersion === 9) {
-          browserType.lteIe6 = true;
           browserType.lteIe7 = true;
           browserType.lteIe8 = true;
           browserType.lteIe9 = true;
+          browserType.lteIe10 = true;
+          browserType.ie6 = true;
+        } else if (ieVersion === 7) {
+          browserType.lteIe7 = true;
+          browserType.lteIe8 = true;
+          browserType.lteIe9 = true;
+          browserType.lteIe10 = true;
+          browserType.ie7 = true;
+        } else if (ieVersion === 8) {
+          browserType.lteIe8 = true;
+          browserType.lteIe9 = true;
+          browserType.lteIe10 = true;
+          browserType.ie8 = true;
+        } else if (ieVersion === 9) {
+          browserType.lteIe9 = true;
+          browserType.lteIe10 = true;
           browserType.ie9 = true;
         } else if (ieVersion === 10) {
+          browserType.lteIe10 = true;
           browserType.ie10 = true;
         }
       }
@@ -452,7 +458,6 @@
   // imjs fire!!!!!
   o.ready();
 
-  /*
   var gu = o.getBrowserFromUa();
   console.log('lteIe6: ', gu.lteIe6);
   console.log('lteIe7: ', gu.lteIe7);
@@ -467,6 +472,5 @@
   console.log('opera: ', gu.opera);
   console.log('chrome: ', gu.chrome);
   console.log('safari: ', gu.safari);
-  */
 
 }( window, document ));
