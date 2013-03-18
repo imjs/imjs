@@ -295,11 +295,11 @@
         pc:           false
       }
       
-      if((ua.indexOf('iphone') > -1 && ua.indexOf('ipad') == -1) || ua.indexOf('ipod') > -1) deviceType.iphone = true; //iPhone&iPod
-      else if(ua.indexOf('android') > -1 && ua.indexOf('mobile') > -1) deviceType.android = true; //AndroidMobile(一部のタブレット型アンドロイドを含む)
-      else if(ua.indexOf('windows phone') > -1) deviceType.windowsphone = true; //WindowsPhone
-      else if(ua.indexOf('ipad') > -1) deviceType.ipad = true; //iPad
-      else if(ua.indexOf('android') > -1) deviceType.androidtab = true; //AndroidTablet
+      if ((ua.indexOf('iphone') > -1 && ua.indexOf('ipad') == -1) || ua.indexOf('ipod') > -1) deviceType.iphone = true; //iPhone&iPod
+      else if (ua.indexOf('android') > -1 && ua.indexOf('mobile') > -1) deviceType.android = true; //AndroidMobile(一部のタブレット型アンドロイドを含む)
+      else if (ua.indexOf('windows phone') > -1) deviceType.windowsphone = true; //WindowsPhone
+      else if (ua.indexOf('ipad') > -1) deviceType.ipad = true; //iPad
+      else if (ua.indexOf('android') > -1) deviceType.androidtab = true; //AndroidTablet
       else deviceType.pc = true; //PC
       return deviceType;
 
@@ -319,7 +319,7 @@
       
       if (!('ontouchstart' in window)) {
 
-        if(typeof window.addEventListener == 'undefined' && typeof document.getElementsByClassName == 'undefined') {//mediaQueryに対応していないブラウザ(lteIe8)は除外
+        if (typeof window.addEventListener == 'undefined' && typeof document.getElementsByClassName == 'undefined') {//mediaQueryに対応していないブラウザ(lteIe8)は除外
           deviceType.mouseWide = true;
         } else {
           if (breakPointNarrow && width <= breakPointNarrow) deviceType.mouseNarrow = true;
@@ -341,12 +341,15 @@
 
     getBrowserFromUa: function () {
 
-      var ua = window.navigator.userAgent.toLowerCase();
-      var ieVersion = ua.slice(ua.indexOf('msie ')+'msie '.length,ua.indexOf('msie ')+'msie '.length+1);
+      var ua = window.navigator.userAgent.toLowerCase(),
+          isIE = /msie/.test(ua);
+          ieVersion = isIE ? Number(/(msie)[ \/]([\w|\.]+)/.exec(ua)[2]): 0;
+
       var browserType = {
         lteIe6:  false,
         lteIe7:  false,
         lteIe8:  false,
+        lteIe9:  false,
         ie:      false,
         ie6:     false,
         ie7:     false,
@@ -356,27 +359,38 @@
         firefox: false,
         opera:   false,
         chrome:  false,
-        safari:  false,
-        other:  false
+        safari:  false
       }
 
-      if(ua.indexOf('msie') > -1) browserType.ie = true;
-      
-      if (ieVersion < 7) browserType.lteIe6 = true;
-      else if(ieVersion < 8) browserType.lteIe7 = true;
-      else if(ieVersion < 9) browserType.lteIe8 = true;
-      else if(ieVersion < 10) browserType.lteIe9 = true;
-      
-      if(ua.indexOf('msie 6.') > -1) browserType.ie6 = true;
-      else if(ua.indexOf('msie 7.') > -1) browserType.ie7 = true;
-      else if(ua.indexOf('msie 8.') > -1) browserType.ie8 = true;
-      else if(ua.indexOf('msie 9.') > -1) browserType.ie9 = true;
-      else if(ua.indexOf('msie 10.') > -1) browserType.ie10 = true;
-      else if(ua.indexOf('firefox') > -1) browserType.firefox = true;
-      else if(ua.indexOf('opera') > -1) browserType.opera = true;
-      else if(ua.indexOf('chrome') > -1) browserType.chrome = true;
-      else if(ua.indexOf('safari') > -1 && ua.indexOf('chrome') == -1) browserType.safari = true;
-      else browserType.other = true;
+      if (isIE) browserType.ie = true;
+      if (/firefox/.test(ua)) browserType.firefox = true;
+      if (/opera/.test(ua)) browserType.opera = true;
+      if (/chrome/.test(ua)) browserType.chrome = true;
+      if (/safari/.test(ua)) browserType.safari = true;
+
+      if (isIE) {
+        if (ieVersion === 6) {
+          browserType.lteIe6 = true;
+          browserType.ie6 = true;
+        } else if (ieVersion === 7) {
+          browserType.lteIe6 = true;
+          browserType.lteIe7 = true;
+          browserType.ie7 = true;
+        } else if (ieVersion === 8) {
+          browserType.lteIe6 = true;
+          browserType.lteIe7 = true;
+          browserType.lteIe8 = true;
+          browserType.ie8 = true;
+        } else if (ieVersion === 9) {
+          browserType.lteIe6 = true;
+          browserType.lteIe7 = true;
+          browserType.lteIe8 = true;
+          browserType.lteIe9 = true;
+          browserType.ie9 = true;
+        } else if (ieVersion === 10) {
+          browserType.ie10 = true;
+        }
+      }
 
       return browserType;
 
@@ -437,5 +451,22 @@
   
   // imjs fire!!!!!
   o.ready();
+
+  /*
+  var gu = o.getBrowserFromUa();
+  console.log('lteIe6: ', gu.lteIe6);
+  console.log('lteIe7: ', gu.lteIe7);
+  console.log('lteIe8: ', gu.lteIe8);
+  console.log('lteIe9: ', gu.lteIe9);
+  console.log('ie6: ', gu.ie6);
+  console.log('ie7: ', gu.ie7);
+  console.log('ie8: ', gu.ie8);
+  console.log('ie9: ', gu.ie9);
+  console.log('ie10: ', gu.ie10);
+  console.log('firefox: ', gu.firefox);
+  console.log('opera: ', gu.opera);
+  console.log('chrome: ', gu.chrome);
+  console.log('safari: ', gu.safari);
+  */
 
 }( window, document ));
