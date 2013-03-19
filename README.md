@@ -155,5 +155,5 @@ scroll
 
   data-[オプション名]
 
-	<a href="#page_top" class="imjs-scroll" data-speed="800" data-offset="0" data-easing="linear">ページの先頭へ</a>
+        <a href="#page_top" class="imjs-scroll" data-speed="800" data-offset="0" data-easing="linear">ページの先頭へ</a>
 
