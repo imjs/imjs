@@ -113,3 +113,47 @@ popup
 +   `options`
     window.open()のオプション  
     **,menubar=no,toolbar=no,location=yes,status=yes,resizable=yes,scrollbars=yes**
+
+### smootScroll - スムーススクロール
+ページ内リンクをスムースにスクロールさせます。
+
+
+#### クラス名
+scroll
+
+#### 使いかた
+
+* 対象のaタグにクラスを付ける。
+
+	<a href="#page_top" class="imjs-scroll">ページの先頭へ</a>
+
+#### オプション
+太字はデフォルト値です。
++   `speed`
+    移動時間(単位:ms)  
+    **500**
+
++   `offset`
+    停止位置の対象要素からの差分(単位:px)
+    **20**
+
++   `easing`
+    スクロールのイージング関数
+    指定できる値はlinear,swing
+    **swing**
+
+#### オプションの指定方法
+ふたつの指定方法があります。
+
+* imjs.confを書き換える
+
+  別記
+
+* 各aタグのdata属性で指定
+
+  指定した要素のみimjs.confの値を上書きできます。
+
+  data-[オプション名]
+
+	<a href="#page_top" class="imjs-scroll" data-speed="800" data-offset="0" data-easing="linear">ページの先頭へ</a>
+
