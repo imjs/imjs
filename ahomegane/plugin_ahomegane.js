@@ -1,6 +1,6 @@
 //author: ahomegane || datemegane;
 
-imjs.plugin.scroll = {
+imjs.conf.plugin.scroll = {
   speed: 500,
   offset: 20,
   easing: 'swing'
@@ -10,21 +10,21 @@ imjs.plugin.scroll = {
  * scroll
  * 特定の位置へスクロール
  */
-o.addCommand(function scroll(){
+imjs.addCommand(function scroll(){
 
-  var requestAnimationFrame = o.requestAnimationFrame();
+  var requestAnimationFrame = imjs.requestAnimationFrame();
   
-  var anchors = o.getElements('a');
+  var anchors = imjs.getElements('a');
   
-  o.forEach(anchors, function () {
+  imjs.forEach(anchors, function () {
 
     var hash = this.hash;
-    var rClassName = new RegExp( imjs.prefix + '-scroll' );
+    var rClassName = new RegExp( imjs.conf.prefix + '-scroll' );
 
     //check hash & className
     if( hash.match(/^#/) && this.className.match(rClassName) ) {
 
-      var target = o.getElements(hash)[0];
+      var target = imjs.getElements(hash)[0];
 
       if( target ) {
 
@@ -32,18 +32,18 @@ o.addCommand(function scroll(){
         var dataSpeed = this.getAttribute('data-speed'),
             dataOffset = this.getAttribute('data-offset'),
             dataEasing = this.getAttribute('data-easing');
-        var speed = dataSpeed || imjs.plugin.scrollspeed || 500;//ms
-        var offset = dataOffset || imjs.plugin.scrolloffset || 20;//px
-        var easing = dataEasing || imjs.plugin.scrolleasing || 'linear';
+        var speed = dataSpeed || imjs.conf.plugin.scrollspeed || 500;//ms
+        var offset = dataOffset || imjs.conf.plugin.scrolloffset || 20;//px
+        var easing = dataEasing || imjs.conf.plugin.scrolleasing || 'linear';
 
 
         //click event
-        o.on(this, 'click', function(e) {
+        imjs.on(this, 'click', function(e) {
 
           //target val
-          var start = o.getScrollPosition().top, 
-              left = o.getScrollPosition().left,
-              end =  o.getElementPosition(target).top - offset,
+          var start = imjs.getScrollPosition().top, 
+              left = imjs.getScrollPosition().left,
+              end =  imjs.getElementPosition(target).top - offset,
               move = end - start;
 
           //start animate
@@ -54,7 +54,7 @@ o.addCommand(function scroll(){
 
             var progress = +(new Date) - startTime;
             //var current = start + (move * progress/duration);
-            var current = o.easing[easing](progress, start, move, duration);
+            var current = imjs.easing[easing](progress, start, move, duration);
             
             window.scrollTo(left, current);
 
@@ -67,7 +67,7 @@ o.addCommand(function scroll(){
             
           })();
 
-          o.preventDefault(e);//chromeでhashがsetされる
+          imjs.preventDefault(e);//chromeでhashがsetされる
 
         });
 
