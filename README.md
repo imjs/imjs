@@ -125,7 +125,7 @@ scroll
 
 * 対象のaタグにクラスを付ける。
 
-	<a href="#page_top" class="imjs-scroll">ページの先頭へ</a>
+        <a href="#page_top" class="imjs-scroll">ページの先頭へ</a>
 
 #### オプション
 太字はデフォルト値です。
@@ -134,12 +134,12 @@ scroll
     **500**
 
 +   `offset`
-    停止位置の対象要素からの差分(単位:px)
+    停止位置の対象要素からの差分(単位:px) 
     **20**
 
 +   `easing`
-    スクロールのイージング関数
-    指定できる値はlinear,swing
+    スクロールのイージング関数 
+    指定できる値はlinear,swing 
     **swing**
 
 #### オプションの指定方法
