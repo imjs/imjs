@@ -8,7 +8,7 @@
 
 	var document = window.document;
 	var htmlNode = document.documentElement;
-	var matchedClass = imjs.prefix + '-redirect';
+	var matchedClass = imjs.conf.prefix + '-redirect';
 
 	if( htmlNode.className.indexOf( matchedClass ) <= -1 ) return;
 
@@ -18,7 +18,7 @@
 	if( !dataTarget || !dataUrl ) return;
 
 	var targets = dataTarget.split(' ');
-	var device = o.getDeviceFromUa();
+	var device = imjs.getDeviceFromUa();
 	var redirect = false;
 	
 	for (var i = 0, l = targets.length; i < l; i++) {

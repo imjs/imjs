@@ -1,6 +1,6 @@
 //author: taro || qitao;
 
-imjs.plugin.rollover = {
+imjs.conf.plugin.rollover = {
   suffix: '_on'
 }
 
@@ -8,26 +8,27 @@ imjs.plugin.rollover = {
  * rollover
  * TODO:説明
  */
-o.addCommand(function rollover(){
+imjs.addCommand(function rollover(){
 
-	var matchedClass = imjs.prefix + '-rollover';
-	var elems = o.getElements('.' + matchedClass);
+	var matchedClass = imjs.conf.prefix + '-rollover';
+	var elems = imjs.getElements('.' + matchedClass);
 	var images = [];
 	var overRegExp = /.(\w+)$/;
-	var outRegExp = new RegExp( imjs.plugin.rollover.suffix + '.(\\w+)$' );
+	var option = imjs.conf.plugin.rollover;
+	var outRegExp = new RegExp( option.suffix + '.(\\w+)$' );
 
 	getImages(elems, images);
 
 	for (var i = 0, l = images.length; i < l; i++) {
 		var image = images[i];
-		o.on(image, 'mouseover', onMouseover);
-		o.on(image, 'mouseout', onMouseout);
+		imjs.on(image, 'mouseover', onMouseover);
+		imjs.on(image, 'mouseout', onMouseout);
 	};
 
 	function onMouseover(event){
 		event || (event = window.event);
 		var target = event.target || event.srcElement;
-		target.src = target.src.replace(overRegExp, imjs.plugin.rollover.suffix +'.$1');
+		target.src = target.src.replace(overRegExp, option.suffix +'.$1');
 	}
 
 	function onMouseout(event){
