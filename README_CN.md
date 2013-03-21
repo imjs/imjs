@@ -158,7 +158,7 @@ scroll
         <a href="#page_top" class="imjs-scroll" data-speed="800" data-offset="0" data-easing="linear">ページの先頭へ</a>
 
 
-### redirect - 页面跳转
+### redirect - 页面重定向
 根据设备类型（智能手机，平板电脑，个人电脑）进行跳转设置，匹配时跳转到指定链接页面。
 
 #### class名
@@ -246,29 +246,131 @@ imjs-rollover
         <!-- 默认当前页面URL，默认宽度100px，默认高度22px，默认显示计数，默认为button类型 -->
         <li class="imjs-facebook"></li>
   
-  + data-href - 设置分享链接
+  属性说明：
+
+  + data-href —— 设置分享链接
+
+    默认当前页面URL，属性值格式：正确链接。
 
         <li class="imjs-facebook" data-href="http://www.imjp.co.jp"></li>
   
-  + data-width - 设置按钮宽度
+  + data-width —— 设置按钮宽度
   
     默认宽度为100px，属性值格式：数字。
 
         <li class="imjs-facebook" data-width="200"></li>
 
-  + data-height - 设置按钮高度
+  + data-height —— 设置按钮高度
+
+    默认高度为22px，属性值格式：数字。
 
         <li class="imjs-facebook" data-height="50"></li>
 
-  + data-count - 设置是否显示计数
+  + data-count —— 设置是否显示计数
+
+    默认为显示计数，属性值格式：字符串，当属性值为 `none` 时，不显示计数。
 
         <li class="imjs-facebook" data-count="none"></li>
 
-  + data-layout - 设置显示类型
+  + data-layout —— 设置显示类型
 
+    默认为 `button_count` 类型，属性值格式：字符串。
+        
+        <!-- 默认类型 -->
+        <li class="imjs-facebook" data-layout="button_count"></li>
+
+        <!-- 在按钮右侧显示文字与用户头像 -->
+        <li class="imjs-facebook" data-layout="standard"></li>
+        
+        <!-- 在按钮上方显示计数 -->
+        <li class="imjs-facebook" data-layout="box_count"></li>
 
 ##### Twitter - **Tweet** 按钮
+
+  简洁写法：
+
+        <!-- 默认当前页面URL，默认显示计数，默认情况下为twitter自定义宽度，无文本以及无关键字 -->
+        <li class="imjs-twitter"></li>
+
+  属性说明：
+
+  + data-url —— 设置分享链接
+
+    默认当前页面URL，属性值格式：正确链接。
+
+        <li class="imjs-twitter" data-url="http://www.imjp.co.jp"></li>
+
+  + data-width —— 设置按钮宽度
+
+    默认为twitter自定义宽度，属性值格式：数字。
+
+        <li class="imjs-twitter" data-width="100"></li>
+
+  + data-text —— 设置分享内容
+
+    默认为空，属性值格式：字符串。
+
+        <li class="imjs-twitter" data-text="世界，你好！"></li>
+
+  + data-hashtags —— 设置分享主题或关键字
+
+    默认为空，属性值格式：字符串。
+
+        <li class="imjs-twitter" data-hashtags="幸福"></li>
+
+  + data-count —— 设置是否显示计数
+
+    默认为显示计数，属性值格式：字符串，当属性值为 `none` 时，不显示计数。
+
+        <li class="imjs-twitter" data-count="none"></li>
+
   
 ##### mixi - **チェック** 按钮
   
+  简洁写法：
+
+        <!-- 默认当前页面URL -->
+        <li class="imjs-mixi"></li>
+
+  属性说明：
+
+  + data-url —— 设置分享链接
+
+    默认当前页面URL，属性值格式：正确链接。
+
+        <li class="imjs-mixi" data-url="http://www.imjp.co.jp"></li>
+
 ##### Weibo - **分享到微博** 按钮
+  
+  简洁写法：
+
+        <!-- 默认当前页面URL -->
+        <li class="imjs-weibo"></li>
+
+  属性说明：
+  
+  + data-type —— 设置显示类型
+    
+    默认为 `icon` 类型，属性值格式：字符串。
+        
+        <!-- 默认类型 -->
+        <li class="imjs-weibo" data-type="icon"></li>
+
+        <!-- 带有文字的按钮 -->
+        <li class="imjs-weibo" data-type="button"></li>
+
+  + data-size —— 设置按钮大小
+
+    默认为 `small` 小图标，属性值格式：字符串。
+
+        <!-- 中图标 -->
+        <li class="imjs-weibo" data-size="middle"></li>
+
+        <!-- 大图标 -->
+        <li class="imjs-weibo" data-size="big"></li>
+
+  + data-count —— 设置是否显示计数
+
+    默认为显示计数，属性值格式：字符串，当属性值为 `none` 时，不显示计数。
+
+        <li class="imjs-weibo" data-count="none"></li>

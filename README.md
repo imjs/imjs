@@ -157,3 +157,221 @@ scroll
 
         <a href="#page_top" class="imjs-scroll" data-speed="800" data-offset="0" data-easing="linear">ページの先頭へ</a>
 
+
+### redirect - リダイレクト
+デバイスのタイプに応じて指定されたURLをリダイレクトする。（デバイスのタイプとはスマートフォン、タブレット、PC）
+
+#### クラス名
+redirect
+
+#### 使いかた
+
+* ステップ 1：`<head>` タグの中にライブラリを読み込む事をすすめる。
+      
+        <head>
+          ...
+          <script type="text/javascript" src="imjs.js"></script>
+          ... ...
+        </head>
+
+* ステップ 2：`<html>` タグにクラスをつける。
+
+        <html class="imjs-redirect">
+
+* ステップ 3：属性 `data-target` でターゲットデイバスを指定。
+
+        <html data-target="sp" class="imjs-redirect">
+  + sp : スマートフォン（例：iPhone, Android, Windows Phone）
+  + tablet : タブレット（例：iPad, Android Tablet）
+  + pc : PC（スマートフォンとタブレット以外のデイバス）
+
+* ステップ 4：属性 `data-url` でURLを指定。
+        
+        <!-- URL -->
+        <html data-target="sp" data-url="http://www.imjp.co.jp" class="imjs-redirect">
+        <!-- 絶対パス -->
+        <html data-target="sp" data-url="/sp" class="imjs-redirect">
+
+#### 同時に複数のデイバスを指定
+        
+        <!-- スマートフォンとタブレット -->
+        <html data-target="sp tablet" class="imjs-redirect">
+        <!-- タブレットとPC -->
+        <html data-target="tablet pc" class="imjs-redirect">
+
+
+### rollover - マウスオーバー
+マウスのカーソルを画像のうえに移動した時にオーバー画像を表示させる
+
+#### クラス名
+rollover
+
+#### 使いかた
+ふたつの指定方法があります。
+
+* 対象の要素すべてにクラスをつける
+
+        <ul>
+          <li><a href="#"><img class="imjs-rollover" src="img/top_menu01.jpg" width="105" height="98" alt="" /></a></li>
+          <li><a href="#"><img class="imjs-rollover" src="img/top_menu02.jpg" width="105" height="98" alt="" /></a></li>
+          <li><a href="#"><img class="imjs-rollover" src="img/top_menu03.jpg" width="105" height="98" alt="" /></a></li>
+        </ul>
+
+* 上位要素にクラスをつける
+
+        <ul class="imjs-rollover">
+          <li><a href="#"><img src="img/top_menu01.jpg" width="105" height="98" alt="" /></a></li>
+          <li><a href="#"><img src="img/top_menu02.jpg" width="105" height="98" alt="" /></a></li>
+          <li><a href="#"><img src="img/top_menu03.jpg" width="105" height="98" alt="" /></a></li>
+        </ul>
+
+#### 重複に追加する事が可能 `class="imjs-rollover"`
+上位要素と対象要素は同時にクラスを追加でも大丈夫です。
+
+### SNS Button - ソーシャルボタン
+HTMLに`<div class="imjs-facebook"></div>`を追加ばかりでFacebookのいいねボタンを実現できる。それ以外、Twitterボタン，中国に人気があるWeiboと日本に人気があるmixiができる。
+
+
+#### Facebook - **いいね** ボタン
+  
+##### クラス名
+facebook
+
+##### 使い方
+    
+        <li class="imjs-facebook"></li>
+  
+  オプションを指定することで表示をカスタマイズできます。
+
+  + data-href —— シェアリンクを指定
+  
+    現在ページのURLはデフォルトの値です。
+        
+        <li class="imjs-facebook" data-href="http://www.imjp.co.jp"></li>
+  
+  + data-width —— 幅を指定
+  
+    100pxはデフォルトの値。
+
+        <li class="imjs-facebook" data-width="200"></li>
+
+  + data-height —— 縦を指定
+
+    22pxはデフォルトの値。
+
+        <li class="imjs-facebook" data-height="50"></li>
+
+  + data-count —— カウントを表示
+
+    デフォルトでカウントを表示する `data-count` 属性の値は`none` を指定されて非表示。
+
+        <li class="imjs-facebook" data-count="none"></li>
+
+  + data-layout —— レイアウトを指定
+
+     `button_count` はデフォルトの値。
+        
+        <!-- デフォルト -->
+        <li class="imjs-facebook" data-layout="button_count"></li>
+
+        <!-- ボタンの右側に文言とプロフィールを表示 -->
+        <li class="imjs-facebook" data-layout="standard"></li>
+        
+        <!-- ボタンの上にカウントを表示 -->
+        <li class="imjs-facebook" data-layout="box_count"></li>
+
+#### Twitter - **ツイート** ボタン  
+
+##### クラス名
+twitter
+
+##### 使い方
+
+        <li class="imjs-twitter"></li>
+
+  オプションを指定することで表示をカスタマイズできます。
+
+  + data-url —— シェアリンクを指定
+
+    現在ページのURLはデフォルトの値です。
+
+        <li class="imjs-twitter" data-url="http://www.imjp.co.jp"></li>
+
+  + data-width —— 幅を指定
+
+    ツイートのデフォルトの幅。
+
+        <li class="imjs-twitter" data-width="100"></li>
+
+  + data-text —— シェアの内容
+
+    空はデフォルトです。
+
+        <li class="imjs-twitter" data-text="こんにちは世界"></li>
+
+  + data-hashtags —— トピックとキーワード
+
+    空はデフォルトです。
+
+        <li class="imjs-twitter" data-hashtags="正解"></li>
+
+  + data-count —— カウントを表示
+
+    デフォルトでカウントを表示する `data-count` 属性の値は`none` を指定されて非表示。
+
+        <li class="imjs-twitter" data-count="none"></li>
+
+  
+#### mixi - **チェック** ボタン
+  
+##### クラス名
+  mixi
+
+##### 使い方
+
+        <li class="imjs-mixi"></li>
+
+  オプションを指定することで表示をカスタマイズできます。
+
+  + data-url —— シェアリンクを指定
+
+    現在ページのURLはデフォルトの値です。
+
+        <li class="imjs-mixi" data-url="http://www.imjp.co.jp"></li>
+
+#### Weibo - **ウェイボーにシェア** ボタン
+  
+##### クラス名
+  weibo
+
+##### 使い方
+
+        <li class="imjs-weibo"></li>
+
+  オプションを指定することで表示をカスタマイズできます。
+  
+  + data-type —— タイプを指定
+    
+    デフォルトのタイプが `icon` です。
+        
+        <!-- デフォルト -->
+        <li class="imjs-weibo" data-type="icon"></li>
+
+        <!-- 文言をつけるボタン -->
+        <li class="imjs-weibo" data-type="button"></li>
+
+  + data-size —— ボタンのお大きさを指定
+
+    デフォルトの大きさが  `small` です。
+
+        <!-- ミドル -->
+        <li class="imjs-weibo" data-size="middle"></li>
+
+        <!-- ビッグ -->
+        <li class="imjs-weibo" data-size="big"></li>
+
+  + data-count —— カウントを表示
+
+    デフォルトでカウントを表示する `data-count` 属性の値は`none` を指定されて非表示。
+
+        <li class="imjs-weibo" data-count="none"></li>
