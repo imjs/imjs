@@ -1,11 +1,11 @@
 
-imjs.plugin.label = {
+imjs.conf.plugin.label = {
 };
 
 imjs.addCommand(function () {
 	var browser = imjs.getBrowserFromUa();
 	if (!browser.ie6 && !browser.ie7 && !browser.ie8) return;
-	var c = imjs.plugin.label, nodes = imjs.getElements('.' + (imjs.prefix + '-label')), els = [];
+	var c = imjs.conf.plugin.label, nodes = imjs.getElements('.' + (imjs.conf.prefix + '-label')), els = [];
 	imjs.forEach(nodes, function (el, i) {
 		if (imjs.getAttribute(el, 'data-descendant') == 'true') {
 			els = els.concat(imjs.getElements('label', el));

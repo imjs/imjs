@@ -1,12 +1,12 @@
 
-imjs.plugin.popup = {
+imjs.conf.plugin.popup = {
 	width: 500,
 	height: 500,
 	options: ',menubar=no,toolbar=no,location=yes,status=yes,resizable=yes,scrollbars=yes'
 };
 
 imjs.addCommand(function () {
-	var c = imjs.plugin.popup, els = imjs.getElements('.' + (imjs.prefix + '-popup'));
+	var c = imjs.conf.plugin.popup, els = imjs.getElements('.' + (imjs.conf.prefix + '-popup'));
 	imjs.forEach(els, function (el, i) {
 		if (!el.href) return;
 		var w = imjs.getAttribute(el, 'data-width') || c.width, h = imjs.getAttribute(el, 'data-height') || c.height;

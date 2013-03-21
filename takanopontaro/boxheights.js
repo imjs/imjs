@@ -1,9 +1,9 @@
 
-imjs.plugin.boxheights = {
+imjs.conf.plugin.boxheights = {
 };
 
 imjs.addCommand(function () {
-	var c = imjs.plugin.boxheights, els = imjs.getElements('.' + (imjs.prefix + '-boxheights')), list = {},
+	var c = imjs.conf.plugin.boxheights, els = imjs.getElements('.' + (imjs.conf.prefix + '-boxheights')), list = {},
 		css = imjs.getBrowserFromUa().ie6 ? ['height', 'auto'] : ['minHeight', 0];
 	imjs.forEach(els, function (el, i) {
 		var group = imjs.getAttribute(el, 'data-group') || '_', group = (list[group] = list[group] || []);
