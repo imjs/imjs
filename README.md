@@ -375,3 +375,32 @@ twitter
     デフォルトでカウントを表示する `data-count` 属性の値は`none` を指定されて非表示。
 
         <li class="imjs-weibo" data-count="none"></li>
+
+### biggerLink - aタグの親要素をクリッカブルにする。
+aタグの親要素をクリッカブルにして、クリッカブルエリアを広げます。
+
+#### クラス名
+biggerLink
+
+#### 使いかた
+
+    <div class="imjs-biggerLink">
+      <h2>imjs-biggerLink</h2>
+      <p>Ubuntu is the world's favourite free operating system, with more than 20 million people preferring it to commercial alternatives.</p>
+      <p><a href="http://www.ubuntu.com/ubuntu">target&nbsp;&nbsp;self&nbsp;&nbsp;&rsaquo;</a></p>
+    </div>
+
+オプションで指定したクラスをCSSで編集することで、ホバーのスタイルを変更できます。
+
+    .hover{
+      background: #d5e8f5;
+    }
+    .hover a{
+      text-decoration: none;
+    }
+
+#### オプション
+太字はデフォルト値です。
++   `hoverClass`
+    ホバーした時に付与されるクラス名  
+    **hover**

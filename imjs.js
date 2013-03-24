@@ -11,9 +11,10 @@
 
   var imjs = {
 
-    prefix: 'imjs',
-
-    plugin: {},
+    conf: {
+      prefix: 'imjs',
+      plugin: {},
+    },
 
     commands: [],
 
