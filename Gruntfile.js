@@ -3,14 +3,14 @@ module.exports = function (grunt) {
 	grunt.initConfig({
 		lint: {
 			all: [
-				'plugin/**/*.js'
+				'plugin/*.js'
 			]
 		},
 		concat: {
 			product: {
 				src: [
 					'imjs.js',
-					'plugin/**/*.js'
+					'plugin/*.js'
 				],
 				dest: 'imjs.min.js'
 			}
@@ -24,5 +24,6 @@ module.exports = function (grunt) {
 			}
 		}
 	});
-	grunt.registerTask('default', ['lint', 'concat', 'min']);
+//	grunt.registerTask('default', ['lint', 'concat', 'min']);
+	grunt.registerTask('default', ['concat', 'min']);
 };
