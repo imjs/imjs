@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Imjs : " />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Imjs</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/imjs/imjs">View on GitHub</a>
+
+          <h1 id="project_title">Imjs</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/imjs/imjs/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/imjs/imjs/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>imjs</h1>
+
+<p>imjsは便利で小さな単機能の集合体です。<br>
+かゆいところに手が届く、そんなライブラリを目指して生まれました。</p>
+
+<h2>使いかた</h2>
+
+<p>imjsは誰でも簡単に、jsの知識がなくても使うことができます。</p>
+
+<p>まずライブラリを読み込みます。</p>
+
+<pre><code>&lt;script type="text/javascript" src="imjs.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>そしてあらかじめ決められたクラスをつける、これだけです。</p>
+
+<pre><code>&lt;div class="imjs-facebook"&gt;&lt;/div&gt;
+</code></pre>
+
+<h2>機能一覧</h2>
+
+<p>imjsで提供される機能の一覧です。<br>
+各機能にはパラメーターを変更できるものもあり、あなたの要望に柔軟に応えます。</p>
+
+<h3>boxheights - ボックスの高さを揃える</h3>
+
+<p>内容量が一定でない、複数のボックスの高さを揃えます。  </p>
+
+<h4>クラス名</h4>
+
+<p>boxheights</p>
+
+<h4>使いかた</h4>
+
+<p>ふたつの指定方法があります。</p>
+
+<ul>
+<li>
+<p>対象の要素すべてにクラスをつける</p>
+
+<pre><code>&lt;ul&gt;
+  &lt;li class="imjs-boxheights"&gt;あいうえお&lt;/li&gt;
+  &lt;li class="imjs-boxheights"&gt;あい&lt;br /&gt;うえお&lt;/li&gt;
+  &lt;li class="imjs-boxheights"&gt;あ&lt;br /&gt;い&lt;br /&gt;う&lt;br /&gt;え&lt;br /&gt;お&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+</li>
+<li>
+<p>親要素にクラスをつける</p>
+
+<p>data-children属性をtrueにすることで、直接の子要素を対象とします。</p>
+
+<pre><code>&lt;ul class="imjs-boxheights" data-children="true"&gt;
+  &lt;li&gt;あいうえお&lt;/li&gt;
+  &lt;li&gt;あい&lt;br /&gt;うえお&lt;/li&gt;
+  &lt;li&gt;あ&lt;br /&gt;い&lt;br /&gt;う&lt;br /&gt;え&lt;br /&gt;お&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+</li>
+</ul><h4>グルーピング</h4>
+
+<p>ページ内に、高さを揃えたいボックスのグループが複数ある場合、data-group属性を追加してグルーピングを行います。<br>
+なお、何も指定しない場合のグループは <strong>_</strong> です。</p>
+
+<pre><code>&lt;ul class="box imjs-boxheights" data-group="second" data-children="true"&gt;
+  &lt;li&gt;あああああ&lt;/li&gt;
+  &lt;li&gt;いいいいい&lt;/li&gt;
+  &lt;li&gt;う&lt;br /&gt;うううう&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<h3>label - IE8以下でlabelタグのバグを回避する</h3>
+
+<p>IE8以下ではlabelタグに問題があります。<br>
+label内に画像がある場合、それをクリックしても何も起こらず、さらにIE6ではlabelのクリック自体が機能しません。<br>
+これらのバグを回避し、他のブラウザと同じように機能するようにします。</p>
+
+<h4>クラス名</h4>
+
+<p>label</p>
+
+<h4>使いかた</h4>
+
+<p>ふたつの指定方法があります。</p>
+
+<ul>
+<li>
+<p>対象の要素すべてにクラスをつける</p>
+
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;&lt;label class="imjs-label"&gt;&lt;input type="checkbox" /&gt;あああああ&lt;/label&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;label class="imjs-label"&gt;&lt;input type="checkbox" /&gt;いいいいい&lt;/label&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;label class="imjs-label"&gt;&lt;input type="checkbox" /&gt;&lt;img src="icon.gif" /&gt;ううううう&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+</li>
+<li>
+<p>上位要素にクラスをつける</p>
+
+<p>data-descendant属性をtrueにすることで、下位要素を対象とします。</p>
+
+<pre><code>&lt;ul class="imjs-label" data-descendant="true"&gt;
+  &lt;li&gt;&lt;label class="imjs-label"&gt;&lt;input type="checkbox" /&gt;あああああ&lt;/label&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;label class="imjs-label"&gt;&lt;input type="checkbox" /&gt;いいいいい&lt;/label&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;label class="imjs-label"&gt;&lt;input type="checkbox" /&gt;&lt;img src="icon.gif" /&gt;ううううう&lt;/label&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+</li>
+</ul><h3>popup - リンクを小窓で開く</h3>
+
+<p>指定したリンクを小窓で開くようにします。</p>
+
+<h4>クラス名</h4>
+
+<p>popup</p>
+
+<h4>使いかた</h4>
+
+<pre><code>&lt;a href="http://www.imjp.co.jp" target="popupwin" class="imjs-popup"&gt;ポップアップで開く&lt;/a&gt;
+</code></pre>
+
+<p>オプションを指定することで表示をカスタマイズできます。</p>
+
+<pre><code>&lt;a href="http://www.imjp.co.jp" target="popupwin" class="imjs-popup" data-width="1000" data-height="700"&gt;1000x700で開く&lt;/a&gt;
+</code></pre>
+
+<h4>オプション</h4>
+
+<p>太字はデフォルト値です。</p>
+
+<ul>
+<li><p><code>width</code>
+小窓の幅<br><strong>500</strong></p></li>
+<li><p><code>height</code>
+小窓の高さ<br><strong>500</strong></p></li>
+<li><p><code>options</code>
+window.open()のオプション<br><strong>,menubar=no,toolbar=no,location=yes,status=yes,resizable=yes,scrollbars=yes</strong></p></li>
+</ul><h3>smootScroll - スムーススクロール</h3>
+
+<p>ページ内リンクをスムースにスクロールさせます。</p>
+
+<h4>クラス名</h4>
+
+<p>scroll</p>
+
+<h4>使いかた</h4>
+
+<ul>
+<li>
+<p>対象のaタグにクラスを付ける。</p>
+
+<pre><code>&lt;a href="#page_top" class="imjs-scroll"&gt;ページの先頭へ&lt;/a&gt;
+</code></pre>
+</li>
+</ul><h4>オプション</h4>
+
+<p>太字はデフォルト値です。</p>
+
+<ul>
+<li><p><code>speed</code>
+移動時間(単位:ms)<br><strong>500</strong></p></li>
+<li><p><code>offset</code>
+停止位置の対象要素からの差分(単位:px)<br><strong>20</strong></p></li>
+<li><p><code>easing</code>
+スクロールのイージング関数<br>
+指定できる値はlinear,swing<br><strong>swing</strong></p></li>
+</ul><h4>オプションの指定方法</h4>
+
+<p>ふたつの指定方法があります。</p>
+
+<ul>
+<li>
+<p>imjs.confを書き換える</p>
+
+<p>別記</p>
+</li>
+<li>
+<p>各aタグのdata属性で指定</p>
+
+<p>指定した要素のみimjs.confの値を上書きできます。</p>
+
+<p>data-[オプション名]</p>
+
+<pre><code>&lt;a href="#page_top" class="imjs-scroll" data-speed="800" data-offset="0" data-easing="linear"&gt;ページの先頭へ&lt;/a&gt;
+</code></pre>
+</li>
+</ul><h3>redirect - リダイレクト</h3>
+
+<p>デバイスのタイプに応じて指定されたURLをリダイレクトする。（デバイスのタイプとはスマートフォン、タブレット、PC）</p>
+
+<h4>クラス名</h4>
+
+<p>redirect</p>
+
+<h4>使いかた</h4>
+
+<ul>
+<li>
+<p>ステップ 1：<code>&lt;head&gt;</code> タグの中にライブラリを読み込む事をすすめる。</p>
+
+<pre><code>&lt;head&gt;
+  ...
+  &lt;script type="text/javascript" src="imjs.js"&gt;&lt;/script&gt;
+  ... ...
+&lt;/head&gt;
+</code></pre>
+</li>
+<li>
+<p>ステップ 2：<code>&lt;html&gt;</code> タグにクラスをつける。</p>
+
+<pre><code>&lt;html class="imjs-redirect"&gt;
+</code></pre>
+</li>
+<li>
+<p>ステップ 3：属性 <code>data-target</code> でターゲットデイバスを指定。</p>
+
+<pre><code>&lt;html data-target="sp" class="imjs-redirect"&gt;
+</code></pre>
+
+<ul>
+<li>sp : スマートフォン（例：iPhone, Android, Windows Phone）</li>
+<li>tablet : タブレット（例：iPad, Android Tablet）</li>
+<li>pc : PC（スマートフォンとタブレット以外のデイバス）</li>
+</ul>
+</li>
+<li>
+<p>ステップ 4：属性 <code>data-url</code> でURLを指定。</p>
+
+<pre><code>&lt;!-- URL --&gt;
+&lt;html data-target="sp" data-url="http://www.imjp.co.jp" class="imjs-redirect"&gt;
+&lt;!-- 絶対パス --&gt;
+&lt;html data-target="sp" data-url="/sp" class="imjs-redirect"&gt;
+</code></pre>
+</li>
+</ul><h4>同時に複数のデイバスを指定</h4>
+
+<pre><code>    &lt;!-- スマートフォンとタブレット --&gt;
+    &lt;html data-target="sp tablet" class="imjs-redirect"&gt;
+    &lt;!-- タブレットとPC --&gt;
+    &lt;html data-target="tablet pc" class="imjs-redirect"&gt;
+</code></pre>
+
+<h3>rollover - マウスオーバー</h3>
+
+<p>マウスのカーソルを画像のうえに移動した時にオーバー画像を表示させる</p>
+
+<h4>クラス名</h4>
+
+<p>rollover</p>
+
+<h4>使いかた</h4>
+
+<p>ふたつの指定方法があります。</p>
+
+<ul>
+<li>
+<p>対象の要素すべてにクラスをつける</p>
+
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;&lt;a href="#"&gt;&lt;img class="imjs-rollover" src="img/top_menu01.jpg" width="105" height="98" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#"&gt;&lt;img class="imjs-rollover" src="img/top_menu02.jpg" width="105" height="98" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#"&gt;&lt;img class="imjs-rollover" src="img/top_menu03.jpg" width="105" height="98" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+</li>
+<li>
+<p>上位要素にクラスをつける</p>
+
+<pre><code>&lt;ul class="imjs-rollover"&gt;
+  &lt;li&gt;&lt;a href="#"&gt;&lt;img src="img/top_menu01.jpg" width="105" height="98" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#"&gt;&lt;img src="img/top_menu02.jpg" width="105" height="98" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="#"&gt;&lt;img src="img/top_menu03.jpg" width="105" height="98" alt="" /&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+</li>
+</ul><h4>重複に追加する事が可能 <code>class="imjs-rollover"</code>
+</h4>
+
+<p>上位要素と対象要素は同時にクラスを追加でも大丈夫です。</p>
+
+<h3>SNS Button - ソーシャルボタン</h3>
+
+<p>HTMLに<code>&lt;div class="imjs-facebook"&gt;&lt;/div&gt;</code>を追加ばかりでFacebookのいいねボタンを実現できる。それ以外、Twitterボタン，中国に人気があるWeiboと日本に人気があるmixiができる。</p>
+
+<h4>Facebook - <strong>いいね</strong> ボタン</h4>
+
+<h5>クラス名</h5>
+
+<p>facebook</p>
+
+<h5>使い方</h5>
+
+<pre><code>    &lt;li class="imjs-facebook"&gt;&lt;/li&gt;
+</code></pre>
+
+<p>オプションを指定することで表示をカスタマイズできます。</p>
+
+<ul>
+<li>
+<p>data-href —— シェアリンクを指定</p>
+
+<p>現在ページのURLはデフォルトの値です。</p>
+
+<pre><code>&lt;li class="imjs-facebook" data-href="http://www.imjp.co.jp"&gt;&lt;/li&gt;
+</code></pre>
+</li>
+<li>
+<p>data-width —— 幅を指定</p>
+
+<p>100pxはデフォルトの値。</p>
+
+<pre><code>&lt;li class="imjs-facebook" data-width="200"&gt;&lt;/li&gt;
+</code></pre>
+</li>
+<li>
+<p>data-height —— 縦を指定</p>
+
+<p>22pxはデフォルトの値。</p>
+
+<pre><code>&lt;li class="imjs-facebook" data-height="50"&gt;&lt;/li&gt;
+</code></pre>
+</li>
+<li>
+<p>data-count —— カウントを表示</p>
+
+<p>デフォルトでカウントを表示する <code>data-count</code> 属性の値は<code>none</code> を指定されて非表示。</p>
+
+<pre><code>&lt;li class="imjs-facebook" data-count="none"&gt;&lt;/li&gt;
+</code></pre>
+</li>
+<li>
+<p>data-layout —— レイアウトを指定</p>
+
+<p><code>button_count</code> はデフォルトの値。</p>
+
+<pre><code>&lt;!-- デフォルト --&gt;
+&lt;li class="imjs-facebook" data-layout="button_count"&gt;&lt;/li&gt;
+
+&lt;!-- ボタンの右側に文言とプロフィールを表示 --&gt;
+&lt;li class="imjs-facebook" data-layout="standard"&gt;&lt;/li&gt;
+
+&lt;!-- ボタンの上にカウントを表示 --&gt;
+&lt;li class="imjs-facebook" data-layout="box_count"&gt;&lt;/li&gt;
+</code></pre>
+</li>
+</ul><h4>Twitter - <strong>ツイート</strong> ボタン</h4>
+
+<h5>クラス名</h5>
+
+<p>twitter</p>
+
+<h5>使い方</h5>
+
+<pre><code>    &lt;li class="imjs-twitter"&gt;&lt;/li&gt;
+</code></pre>
+
+<p>オプションを指定することで表示をカスタマイズできます。</p>
+
+<ul>
+<li>
+<p>data-url —— シェアリンクを指定</p>
+
+<p>現在ページのURLはデフォルトの値です。</p>
+
+<pre><code>&lt;li class="imjs-twitter" data-url="http://www.imjp.co.jp"&gt;&lt;/li&gt;
+</code></pre>
+</li>
+<li>
+<p>data-width —— 幅を指定</p>
+
+<p>ツイートのデフォルトの幅。</p>
+
+<pre><code>&lt;li class="imjs-twitter" data-width="100"&gt;&lt;/li&gt;
+</code></pre>
+</li>
+<li>
+<p>data-text —— シェアの内容</p>
+
+<p>空はデフォルトです。</p>
+
+<pre><code>&lt;li class="imjs-twitter" data-text="こんにちは世界"&gt;&lt;/li&gt;
+</code></pre>
+</li>
+<li>
+<p>data-hashtags —— トピックとキーワード</p>
+
+<p>空はデフォルトです。</p>
+
+<pre><code>&lt;li class="imjs-twitter" data-hashtags="正解"&gt;&lt;/li&gt;
+</code></pre>
+</li>
+<li>
+<p>data-count —— カウントを表示</p>
+
+<p>デフォルトでカウントを表示する <code>data-count</code> 属性の値は<code>none</code> を指定されて非表示。</p>
+
+<pre><code>&lt;li class="imjs-twitter" data-count="none"&gt;&lt;/li&gt;
+</code></pre>
+</li>
+</ul><h4>mixi - <strong>チェック</strong> ボタン</h4>
+
+<h5>クラス名</h5>
+
+<p>mixi</p>
+
+<h5>使い方</h5>
+
+<pre><code>    &lt;li class="imjs-mixi"&gt;&lt;/li&gt;
+</code></pre>
+
+<p>オプションを指定することで表示をカスタマイズできます。</p>
+
+<ul>
+<li>
+<p>data-url —— シェアリンクを指定</p>
+
+<p>現在ページのURLはデフォルトの値です。</p>
+
+<pre><code>&lt;li class="imjs-mixi" data-url="http://www.imjp.co.jp"&gt;&lt;/li&gt;
+</code></pre>
+</li>
+</ul><h4>Weibo - <strong>ウェイボーにシェア</strong> ボタン</h4>
+
+<h5>クラス名</h5>
+
+<p>weibo</p>
+
+<h5>使い方</h5>
+
+<pre><code>    &lt;li class="imjs-weibo"&gt;&lt;/li&gt;
+</code></pre>
+
+<p>オプションを指定することで表示をカスタマイズできます。</p>
+
+<ul>
+<li>
+<p>data-type —— タイプを指定</p>
+
+<p>デフォルトのタイプが <code>icon</code> です。</p>
+
+<pre><code>&lt;!-- デフォルト --&gt;
+&lt;li class="imjs-weibo" data-type="icon"&gt;&lt;/li&gt;
+
+&lt;!-- 文言をつけるボタン --&gt;
+&lt;li class="imjs-weibo" data-type="button"&gt;&lt;/li&gt;
+</code></pre>
+</li>
+<li>
+<p>data-size —— ボタンのお大きさを指定</p>
+
+<p>デフォルトの大きさが  <code>small</code> です。</p>
+
+<pre><code>&lt;!-- ミドル --&gt;
+&lt;li class="imjs-weibo" data-size="middle"&gt;&lt;/li&gt;
+
+&lt;!-- ビッグ --&gt;
+&lt;li class="imjs-weibo" data-size="big"&gt;&lt;/li&gt;
+</code></pre>
+</li>
+<li>
+<p>data-count —— カウントを表示</p>
+
+<p>デフォルトでカウントを表示する <code>data-count</code> 属性の値は<code>none</code> を指定されて非表示。</p>
+
+<pre><code>&lt;li class="imjs-weibo" data-count="none"&gt;&lt;/li&gt;
+</code></pre>
+</li>
+</ul><h3>biggerLink - aタグの親要素をクリッカブルにする。</h3>
+
+<p>aタグの親要素をクリッカブルにして、クリッカブルエリアを広げます。</p>
+
+<h4>クラス名</h4>
+
+<p>biggerLink</p>
+
+<h4>使いかた</h4>
+
+<pre><code>&lt;div class="imjs-biggerLink"&gt;
+  &lt;h2&gt;imjs-biggerLink&lt;/h2&gt;
+  &lt;p&gt;Ubuntu is the world's favourite free operating system, with more than 20 million people preferring it to commercial alternatives.&lt;/p&gt;
+  &lt;p&gt;&lt;a href="http://www.ubuntu.com/ubuntu"&gt;target&amp;nbsp;&amp;nbsp;self&amp;nbsp;&amp;nbsp;&amp;rsaquo;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+</code></pre>
+
+<p>オプションで指定したクラスをCSSで編集することで、ホバーのスタイルを変更できます。</p>
+
+<pre><code>.hover{
+  background: #d5e8f5;
+}
+.hover a{
+  text-decoration: none;
+}
+</code></pre>
+
+<h4>オプション</h4>
+
+<p>太字はデフォルト値です。</p>
+
+<ul>
+<li>  <code>hoverClass</code>
+ホバーした時に付与されるクラス名<br><strong>hover</strong>
+</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Imjs maintained by <a href="https://github.com/imjs">imjs</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
