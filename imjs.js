@@ -13,7 +13,7 @@
 
     conf: {
       prefix: 'imjs',
-      plugin: {},
+      plugin: {}
     },
 
     commands: [],
