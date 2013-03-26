@@ -408,3 +408,53 @@ biggerLink
 +   `hoverClass`
     ホバーした時に付与されるクラス名  
     **hover**
+
+### addClassToTable - TABLEのTRタグにクラスを追加する。
+TABLEのTRタグに奇数、偶数に分けてデフォルトもしくは、指定したクラスを追加します。
+
+#### クラス名
+addClassToTable 
+
+#### 使いかた
+
+    <table class="imjs-addClass" data-even="even" data-odd="odd">
+	    <caption>Table01</caption>
+	    <tr>
+	        <td>a01</td>
+	        <td>a02</td>
+	        <td>a03</td>
+	    </tr>
+	    <tr>
+	        <td>b01</td>
+	        <td>b02</td>
+	        <td>b03</td>
+	    </tr>
+	    <tr>
+	        <td>c01</td>
+	        <td>c02</td>
+	        <td>c03</td>
+	    </tr>
+	    <tr>
+	        <td>d01</td>
+	        <td>d02</td>
+	        <td>d03</td>
+	    </tr>
+	</table>
+
+オプションで指定したクラスをCSSで編集することで、奇数行、偶数行のスタイルを変更できます。
+
+    .even{
+      background-color: #FFF;
+    }
+    .odd{
+      background-color: #000;
+    }
+
+#### オプション
+太字はデフォルト値です。
++   data-even
+    偶数行に追加するクラス名
+    **even**
++   data-odd
+    奇数行に追加するクラス名
+    **odd**
