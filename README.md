@@ -413,7 +413,7 @@ biggerLink
 TABLEのTRタグに奇数、偶数に分けてデフォルトもしくは、指定したクラスを追加します。
 
 #### クラス名
-addClassToTable 
+addClass
 
 #### 使いかた
 
@@ -457,3 +457,37 @@ addClassToTable
 +   data-odd
     奇数行に追加するクラス名
     **odd**
+
+### addClassToList - UL、OLのLIタグにクラスを追加する。
+UL、OLのLIタグに奇数、偶数に分けてデフォルトもしくは、指定したクラスを追加します。
+
+#### クラス名
+addClass
+
+#### 使いかた
+
+<ul class="imjs-addClass" data-even="even" data-odd="odd">
+    <li>a01</li>
+    <li>a02</li>
+    <li>a03</li>
+    <li>a04</li>
+</ul>
+
+オプションで指定したクラスをCSSで編集することで、奇数行、偶数行のスタイルを変更できます。
+
+    .even{
+      background-color: #FFF;
+    }
+    .odd{
+      background-color: #000;
+    }
+
+#### オプション
+太字はデフォルト値です。
++   data-even
+    偶数行に追加するクラス名
+    **even**
++   data-odd
+    奇数行に追加するクラス名
+    **odd**
+
