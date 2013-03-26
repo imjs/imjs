@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>テーブルにクラスを追加する</title>
+    <style>
+        table {
+            margin-bottom: 2em;
+            padding: 0;
+            border-top: solid 1px #000;
+            border-right: solid 1px #000;
+        }
+        caption {
+            font-size: 20px;
+        }
+        td {
+            margin: 0;
+            padding: 10px;
+            border-bottom: solid 1px #000;
+            border-left: solid 1px #000;
+        }
+        .e {
+            background-color: #CCC;
+            color: #000;
+        }
+        .o {
+            background-color: #000;
+            color: #FFF;
+        }
+        .even {
+            background-color: #F00;
+            color: #FFF;
+        }
+        .odd {
+            background-color: #00F;
+            color: #FFF;
+        }
+    </style>
+    <script type="text/javascript" src="https://raw.github.com/imjs/imjs/master/imjs.js"></script>
+    <script type="text/javascript" src="https://raw.github.com/imjs/imjs/master/plugin/boxheights.js"></script>
+</head>
+<body>
+<table cellspacing="0" cellpadding="0" class="imjs-addClass">
+    <caption>行にデフォルトのクラス（指定なし）を追加したテーブル</caption>
+    <tr>
+        <td>A_01</td>
+        <td>A_02</td>
+        <td>A_03</td>
+    </tr>
+    <tr>
+        <td>B_01</td>
+        <td>B_02</td>
+        <td>B_03</td>
+    </tr>
+    <tr>
+        <td>C_01</td>
+        <td>C_02</td>
+        <td>C_03</td>
+    </tr>
+    <tr>
+        <td>D_01</td>
+        <td>D_02</td>
+        <td>D_03</td>
+    </tr>
+    <tr>
+        <td>E_01</td>
+        <td>E_02</td>
+        <td>E_03</td>
+    </tr>
+</table>
+<table cellspacing="0" cellpadding="0" class="imjs-addClass" data-even="e" data-odd="o">
+    <caption>行に指定したクラスを追加したテーブル</caption>
+    <tr>
+        <td>A_01</td>
+        <td>A_02</td>
+        <td>A_03</td>
+    </tr>
+    <tr>
+        <td>B_01</td>
+        <td>B_02</td>
+        <td>B_03</td>
+    </tr>
+    <tr>
+        <td>C_01</td>
+        <td>C_02</td>
+        <td>C_03</td>
+    </tr>
+    <tr>
+        <td>D_01</td>
+        <td>D_02</td>
+        <td>D_03</td>
+    </tr>
+    <tr>
+        <td>E_01</td>
+        <td>E_02</td>
+        <td>E_03</td>
+    </tr>
+</table>
+</body>
+</html>
