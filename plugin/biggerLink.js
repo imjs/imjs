@@ -3,36 +3,36 @@
  * aタグの親要素をクリッカブルにする
  */
 
-imjs.plugin.biggerLink = {
+imjs.conf.plugin.biggerLink = {
   hoverClass: 'hover'
 };
 
-o.addCommand(function (){
+imjs.addCommand(function (){
 
-  var className = imjs.prefix + '-biggerLink',
-      target = o.getElements('.' + className),
-      hoverClass = imjs.plugin.biggerLink.hoverClass || 'hover';
+  var className = imjs.conf.prefix + '-biggerLink',
+      target = imjs.getElements('.' + className),
+      hoverClass = imjs.conf.plugin.biggerLink.hoverClass || 'hover';
 
-  o.forEach(target, function (element, i) {
+  imjs.forEach(target, function (element, i) {
 
-    var a = o.getElements('a', element)[0];
+    var a = imjs.getElements('a', element)[0];
     element.style.cursor = 'pointer';
 
-    o.on(element, 'click', function () {
+    imjs.on(element, 'click', function () {
       ( a.getAttribute('target') )?
         window.open(a.href):
         location.href = a.href;
     });
 
-    o.on(element, 'mouseover', function () {
+    imjs.on(element, 'mouseover', function () {
 
-      o.addClass(element, hoverClass);
+      imjs.addClass(element, hoverClass);
 
     });
 
-    o.on(element, 'mouseout', function () {
+    imjs.on(element, 'mouseout', function () {
 
-      o.removeClass(element, hoverClass);
+      imjs.removeClass(element, hoverClass);
 
     });
 
