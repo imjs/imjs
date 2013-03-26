@@ -418,7 +418,6 @@ addClassToTable
 #### 使いかた
 
     <table class="imjs-addClass" data-even="even" data-odd="odd">
-	    <caption>Table01</caption>
 	    <tr>
 	        <td>a01</td>
 	        <td>a02</td>
