@@ -454,10 +454,10 @@
 
   });
 
-  window.o = window.imjs = imjs; // export. shotrcut = o
+  window.imjs = imjs; // export. shotrcut = o
   
   // imjs fire!!!!!
-  o.ready();
+  imjs.ready();
 
   // var gu = o.getBrowserFromUa();
   // console.log('lteIe6: ', gu.lteIe6);
