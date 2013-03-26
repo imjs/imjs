@@ -466,12 +466,12 @@ addClass
 
 #### 使いかた
 
-<ul class="imjs-addClass" data-even="even" data-odd="odd">
-    <li>a01</li>
-    <li>a02</li>
-    <li>a03</li>
-    <li>a04</li>
-</ul>
+    <ul class="imjs-addClass" data-even="even" data-odd="odd">
+    	<li>a01</li>
+    	<li>a02</li>
+   	<li>a03</li>
+   	<li>a04</li>
+    </ul>
 
 オプションで指定したクラスをCSSで編集することで、奇数行、偶数行のスタイルを変更できます。
 
