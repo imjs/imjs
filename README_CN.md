@@ -2,6 +2,9 @@ imjs
 ======================
 imjs是一个方便实用的轻量级JS库。目的在于为您的前端开发提供无微不至的帮助。
 
+Demo
+----
+http://imjs.github.com/imjs/demo/
 
 使用方法
 ------
@@ -14,6 +17,25 @@ imjs是一个方便实用的轻量级JS库。目的在于为您的前端开发�
 然后，只需在HTML标签上添加期望功能的class名称，如下。
 
     <div class="imjs-facebook"></div>
+
+
+功能列表
+-------
++ boxheights - 对齐块级元素的行高
++ label - 修复IE6~IE8下 `label` 标签内嵌套图片的bug
++ popup - 弹出窗口
++ smoothScroll - 平滑滚动
++ redirect - 页面重定向
++ rollover - 鼠标悬浮
++ SNS Button - 社交网站分享按钮
+  - facebook
+  - twitter
+  - weibo （新浪微博）
+  - mixi （日本人气社交网站）
++ biggerLink - 增大型链接
++ addClassToTable - 为 `table` 的 `tr` 标签添加 `class`
++ addClassToList - 为 `ul` `ol`的 `li` 子标签添加 `class`
+
 
 功能介绍
 ------
@@ -47,115 +69,114 @@ boxheights
           <li>块级元素三<br />三<br />四<br />五<br />六</li>
         </ul>
 
-#### グルーピング
-ページ内に、高さを揃えたいボックスのグループが複数ある場合、data-group属性を追加してグルーピングを行います。  
-なお、何も指定しない場合のグループは **_** です。
+#### data-group
+HTML内多次出现对齐行高时，添加 `data-group` 属性可以使指定组的行高向其中最高一组的行高对齐。
 
     <ul class="box imjs-boxheights" data-group="second" data-children="true">
-      <li>あああああ</li>
-      <li>いいいいい</li>
-      <li>う<br />うううう</li>
+      <li>块级元素一</li>
+      <li>块级元素二<br />二二二二</li>
+      <li>块级元素三<br />三<br />四<br />五<br />六</li>
     </ul>
 
-### label - IE8以下でlabelタグのバグを回避する
+### label - 修复IE6~IE8下 `label` 标签内嵌套图片的bug
 IE8以下ではlabelタグに問題があります。  
 label内に画像がある場合、それをクリックしても何も起こらず、さらにIE6ではlabelのクリック自体が機能しません。  
 これらのバグを回避し、他のブラウザと同じように機能するようにします。
 
-#### クラス名
+#### class名
 label
 
-#### 使いかた
-ふたつの指定方法があります。
+#### 使用方法
+两种设置方法：
 
-* 対象の要素すべてにクラスをつける
+* 方法一：为每个対象元素添加class，如下：
 
         <ul>
-          <li><label class="imjs-label"><input type="checkbox" />あああああ</label></li>
-          <li><label class="imjs-label"><input type="checkbox" />いいいいい</label></li>
-          <li><label class="imjs-label"><input type="checkbox" /><img src="icon.gif" />ううううう</label></li>
+          <li><label class="imjs-label"><input type="checkbox" />一一一一</label></li>
+          <li><label class="imjs-label"><input type="checkbox" />二二二二</label></li>
+          <li><label class="imjs-label"><input type="checkbox" /><img src="icon.gif" />三三三三</label></li>
         </ul>
 
-* 上位要素にクラスをつける
+* 方法二：为对象元素的父元素添加class，如下：
 
-    data-descendant属性をtrueにすることで、下位要素を対象とします。
+    当 `data-descendant` 属性为true时、子元素将拥有此功能。
 
         <ul class="imjs-label" data-descendant="true">
-          <li><label class="imjs-label"><input type="checkbox" />あああああ</label></li>
-          <li><label class="imjs-label"><input type="checkbox" />いいいいい</label></li>
-          <li><label class="imjs-label"><input type="checkbox" /><img src="icon.gif" />ううううう</label></li>
+          <li><label><input type="checkbox" />一一一一</label></li>
+          <li><label><input type="checkbox" />二二二二</label></li>
+          <li><label><input type="checkbox" /><img src="icon.gif" />三三三三</label></li>
         </ul>
 
-### popup - リンクを小窓で開く
-指定したリンクを小窓で開くようにします。
+### popup - 弹出窗口
+链接以弹出窗口的形式显示。
 
-#### クラス名
+#### class名
 popup
 
-#### 使いかた
+#### 使用方法
 
-    <a href="http://www.imjp.co.jp" target="popupwin" class="imjs-popup">ポップアップで開く</a>
+    <a href="http://www.imjp.co.jp" target="popupwin" class="imjs-popup">点击-弹出窗口</a>
 
-オプションを指定することで表示をカスタマイズできます。
+设定参数实现自定义弹出窗口
 
     <a href="http://www.imjp.co.jp" target="popupwin" class="imjs-popup" data-width="1000" data-height="700">1000x700で開く</a>
 
-#### オプション
-太字はデフォルト値です。
+#### option
+默认为粗体字。
+
 +   `width`
-    小窓の幅  
+    窗口宽度  
     **500**
 
 +   `height`
-    小窓の高さ  
+    窗口高度  
     **500**
 
 +   `options`
-    window.open()のオプション  
+    window.open()选项  
     **,menubar=no,toolbar=no,location=yes,status=yes,resizable=yes,scrollbars=yes**
 
-### smootScroll - スムーススクロール
-ページ内リンクをスムースにスクロールさせます。
+### smoothScroll - 平滑滚动
+点击页内链接，平滑滚动到指定锚点。
 
-
-#### クラス名
+#### class名
 scroll
 
-#### 使いかた
+#### 使用方法
 
-* 対象のaタグにクラスを付ける。
+* 为 `a` 标签添加class
 
-        <a href="#page_top" class="imjs-scroll">ページの先頭へ</a>
+        <a href="#page_top" class="imjs-scroll">页首へ</a>
 
-#### オプション
-太字はデフォルト値です。
+#### option
+默认为粗体字。
 +   `speed`
-    移動時間(単位:ms)  
+    移动时间(单位:ms)  
     **500**
 
 +   `offset`
-    停止位置の対象要素からの差分(単位:px)  
+    距离链接锚点的距离(单位:px)  
     **20**
 
 +   `easing`
-    スクロールのイージング関数  
-    指定できる値はlinear,swing  
+    指定easing参数
+    目前为止imjs实现了linear,swing  
     **swing**
 
-#### オプションの指定方法
-ふたつの指定方法があります。
+#### option
+共有两个选项：
 
-* imjs.confを書き換える
+* 在JS文件中对imjs.conf进行配置
 
-  別記
+  说明在JS文件中
 
-* 各aタグのdata属性で指定
+* 自定义 `a` 标签的data属性
 
-  指定した要素のみimjs.confの値を上書きできます。
+  自定义data属性将覆盖imjs.conf的默认设置。
 
-  data-[オプション名]
+  data-[option名]
 
-        <a href="#page_top" class="imjs-scroll" data-speed="800" data-offset="0" data-easing="linear">ページの先頭へ</a>
+        <a href="#page_top" class="imjs-scroll" data-speed="800" data-offset="0" data-easing="linear">首页へ</a>
 
 
 ### redirect - 页面重定向
@@ -374,3 +395,114 @@ imjs-rollover
     默认为显示计数，属性值格式：字符串，当属性值为 `none` 时，不显示计数。
 
         <li class="imjs-weibo" data-count="none"></li>
+
+### biggerLink - 增大型链接
+为增大链接的可点击范围，点击 `a` 标签父元素时同样跳转到标签链接。
+
+#### class名
+biggerLink
+
+#### 使用方法
+
+    <div class="imjs-biggerLink">
+      <h2>imjs-biggerLink</h2>
+      <p>Ubuntu is the world's favourite free operating system, with more than 20 million people preferring it to commercial alternatives.</p>
+      <p><a href="http://www.ubuntu.com/ubuntu">target&nbsp;&nbsp;self&nbsp;&nbsp;&rsaquo;</a></p>
+    </div>
+
+在CSS文件中为JS生成的class添加样式。
+
+
+    .hover{
+      background: #d5e8f5;
+    }
+    .hover a{
+      text-decoration: none;
+    }
+
+#### option
++   `hoverClass`
+    鼠标悬浮于元素之上时添加class名  
+    **hover**
+
+### addClassToTable - 为 `table` 的 `tr` 标签添加 `class`
+默认为table的奇数行和偶数行tr标签添加class名。可自定义class名。
+
+#### class名
+addClass
+
+#### 使用方法
+
+    <table class="imjs-addClass" data-even="even" data-odd="odd">
+      <tr>
+          <td>a01</td>
+          <td>a02</td>
+          <td>a03</td>
+      </tr>
+      <tr>
+          <td>b01</td>
+          <td>b02</td>
+          <td>b03</td>
+      </tr>
+      <tr>
+          <td>c01</td>
+          <td>c02</td>
+          <td>c03</td>
+      </tr>
+      <tr>
+          <td>d01</td>
+          <td>d02</td>
+          <td>d03</td>
+      </tr>
+  </table>
+
+在CSS文件中为JS生成的class添加样式。改变奇数行偶数行的样式，如下：
+    .even{
+      background-color: #FFF;
+    }
+    .odd{
+      background-color: #000;
+    }
+
+#### option
+粗体字为默认值。
++   data-even
+    指定偶数行class名
+    **even**
++   data-odd
+    指定奇数行class名
+    **odd**
+
+### addClassToList - 为 `ul` `ol`的 `li` 子标签添加 `class`
+默认为 `ul` `ol`的奇数行和偶数行 `li` 子标签添加class名。可自定义class名。
+
+#### class名
+addClass
+
+#### 使用方法
+
+    <ul class="imjs-addClass" data-even="even" data-odd="odd">
+      <li>a01</li>
+      <li>a02</li>
+      <li>a03</li>
+      <li>a04</li>
+    </ul>
+
+在CSS文件中为JS生成的class添加样式。改变奇数行偶数行的样式，如下：
+
+    .even{
+      background-color: #FFF;
+    }
+    .odd{
+      background-color: #000;
+    }
+
+#### option
+粗体字为默认值。
++   data-even
+    指定偶数行class名。
+    **even**
++   data-odd
+    指定奇数行class名
+    **odd**
+
